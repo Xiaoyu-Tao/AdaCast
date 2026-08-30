@@ -1,0 +1,12 @@
+Ask for, validate, and import a user-submitted prediction-prior dataset.
+
+The prediction-prior CSV must be a complete dataset with the same columns, row count, timestamp column, target column, frequency, and non-target values as the real dataset frozen in `.forecast/task.json`. The training target values must remain unchanged. The validation and test target values are interpreted as user-provided prior predictions, not as replacement ground truth.
+
+If the user enables this mode, AdaCast skips model Zoo search and model tuning. The imported prior becomes the raw prediction source named `UserPrior`, deep generative prediction reasoning is enabled automatically, validation-front artifacts are prepared for rule design, and held-out validation artifacts are prepared for acceptance. Test prior artifacts are materialized only during `post-forecast`.
+
+Subcommands:
+- `read`: Return the current prediction-prior state and manifest, when present.
+- `ask_start`: Ask whether the user wants to submit a prediction-prior dataset. If yes, ask for its path, validate it, and retry the path prompt with the validation error when needed.
+- `ask_path`: Ask for a prediction-prior CSV path and import it, with the same validation-and-retry behavior.
+- `import`: Import a prediction-prior CSV path supplied directly in `prior_dataset_path`.
+- `materialize_test`: During `post-forecast`, create the raw UserPrior test run and evaluate it against the original real test target. This is intentionally unavailable before `post-forecast`.

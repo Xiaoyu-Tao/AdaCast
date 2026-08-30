@@ -1,0 +1,16 @@
+Manage forecasting experiment skills in `.forecast/skills/`. Skills define model families, applicable conditions, parameter spaces, and risk warnings used by the Forecaster agent. Supports these subcommands:
+
+- `list`: List all skill files in `.forecast/skills/` with name and description.
+- `read`: Read the full content of a skill by name.
+- `write`: Create or overwrite a skill. Requires `skill_name`, `skill_description`, and `skill_content`. Creates a SKILL.md file at `.forecast/skills/<skill_name>/SKILL.md` with YAML frontmatter (name, description) and the provided content as the Markdown body.
+- `delete`: Remove a skill directory by name from `.forecast/skills/`.
+- `publish_memory`: Promote the current task's finalized `.forecast/skills/` into long-lived global Forecast memory. This stores reusable memory skills outside the task workspace and records source task summaries plus aggregate final validation evidence.
+- `list_memory`: List globally stored Forecast memory skills available across tasks and projects.
+- `read_memory`: Read a global Forecast memory skill by `memory_name`.
+- `import_memory`: Copy a global Forecast memory skill into the current task's `.forecast/skills/`. Requires `memory_name`; optionally pass `target_skill_name` and `overwrite`.
+
+Skills follow the standard SKILL.md format (YAML frontmatter with name and description, Markdown body). The body should include: Applicable Conditions, Parameter Space, Feature Template, Runner Entry Point, and Risk Warnings sections.
+
+Create or review local task Skills only after `forecast_state transition` to `skills-review` has succeeded. Use `forecast_state confirm_skills` to freeze the skill set after user review or Auto Mode skill auto-approval. Confirming skills requires the current phase to be `skills-review`; do not call it from `init` or `pre-forecast`. Use `forecast_state transition` with `target_phase: "forecast"` to enter the experiment phase after skills are confirmed.
+
+Global Forecast memory is a reusable prior, not a guarantee. Always adapt imported memory to the current task and validate it with the normal Forecast loop. Memory entries are not automatically injected into every task's active Skill set; import only the relevant entries into `.forecast/skills/`. `forecast_state transition` to `post-forecast` makes a best-effort attempt to publish the final local skills to global Forecast memory, while `publish_memory` is available for explicit manual publishing or inspection.

@@ -1,0 +1,9 @@
+Run the fixed quantitative analysis on the forecasting dataset.
+
+Reads task.json from .forecast/ to determine dataset path, target column, time column, and the frozen ratio or timestamp split contract. Invokes the Python statistical analyzer (python/src/adacast_ml/analyzer.py) which produces a structured JSON report covering trend, seasonality, stationarity (ADF/KPSS), volatility, missing data rate, anomaly density, and distribution shifts.
+
+All target-derived statistics are restricted to the full user training split resolved from the frozen ratio or timestamp split contract. The validation-front adjustment evidence targets, held-out validation targets, and test targets are excluded. Split timestamps remain target-blind metadata so the Planner may describe known calendar coverage such as a winter test period without observing future target behavior.
+
+The output is written to .forecast/reports/quantitative.json and returned as structured JSON.
+
+This tool should be called during the pre-forecast phase to generate the quantitative analysis component of the pre-forecast report.

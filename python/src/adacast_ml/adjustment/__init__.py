@@ -1,0 +1,1 @@
+"""Deterministic forecast adjustment helpers."""

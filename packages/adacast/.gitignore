@@ -1,0 +1,6 @@
+research
+.forecast-backup-*
+dist
+gen
+app.log
+src/provider/models-snapshot.ts
