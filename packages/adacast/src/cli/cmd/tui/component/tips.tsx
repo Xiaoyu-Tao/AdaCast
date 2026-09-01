@@ -36,7 +36,6 @@ export function Tips() {
 
   return (
     <box flexDirection="column" alignItems="center" maxWidth="100%">
-      <text fg={theme.textMuted}>Designed by USTC-AGI</text>
       <box flexDirection="row" maxWidth="100%">
         <text flexShrink={0} style={{ fg: theme.warning }}>
           ● Tip{" "}
