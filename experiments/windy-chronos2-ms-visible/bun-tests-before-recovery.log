@@ -1,0 +1,45 @@
+bun test v1.3.13 (bf2e2cec)
+
+tests/alignment.test.ts:
+(pass) canonical adjustment freezes family sources, replays validation front, validates and locks a conditional skill [156172.82ms]
+
+tests/flow-alignment.test.ts:
+(pass) reference spec interface checks frozen task fields and records full experiment reflection [10977.14ms]
+(pass) failed attempts can be reflected and retried without spending another unique-spec slot [21356.66ms]
+(pass) compiled runtime catalog and Python implementations declare the same model names [8944.58ms]
+
+tests/llm-policy.test.ts:
+(pass) sampling defaults match the recorded reference model policy [0.29ms]
+(pass) HTTP requests honor role parameters, model limits, token usage and tool-name repair [66.48ms]
+(pass) unknown models omit sampling defaults and incompatible tool capability fails before HTTP [54.34ms]
+(pass) default provider retries are zero and truncated responses do not restart generation [115.59ms]
+(pass) provider context overflow compacts once, replays the latest turn and records all calls [144.61ms]
+(pass) reference pruning protects two recent turns and skill outputs without deleting audit history [158.48ms]
+(pass) reported token counts trigger compaction even when the current estimate is small [71.48ms]
+(pass) tool output follows the reference byte and line limits [1.10ms]
+(pass) fatal window-call budgets abort the owning domain scope [43.48ms]
+(pass) disabled automatic compaction preserves a fitting projection despite old reported usage [48.38ms]
+
+tests/runtime.test.ts:
+(pass) configuration rejects ambiguous splits and implicit reflection in deterministic mode [3.97ms]
+(pass) context compaction retains complete tool groups and preserves durable constraints [267.28ms]
+(pass) global LLM reservations count unknown attempts conservatively [62.37ms]
+(pass) tool recovery reuses committed results without repeating side effects [46.90ms]
+(pass) a resumed helper accepts a new prompt without discarding its isolated history [80.93ms]
+(pass) a fitted candidate cannot bypass the fatal consecutive-crash stop [21138.50ms]
+(pass) semantic compaction persists the original summary and reuses it after context reconstruction [133.20ms]
+
+tests/workflow.test.ts:
+(pass) local task trains, selects on validation, reuses weights, resumes and exports a verified package [60031.30ms]
+(pass) interrupted phase recovery does not repeat completed experiments [59079.31ms]
+(pass) frozen input corruption is rejected without silently changing the task [17458.22ms]
+(pass) one workspace rejects concurrent executors using a transactional lease [50.12ms]
+(pass) mock-provider agents execute real tools and the original structured evidence loop [182388.08ms]
+(pass) window cancellation remains resumable and terminal windows are reused [229197.08ms]
+(pass) UserPrior skips model search and preserves an independently supplied forecast source [65629.74ms]
+(pass) invalid evidence proposals never replace committed predictions [197847.57ms]
+
+ 29 pass
+ 0 fail
+ 207 expect() calls
+Ran 29 tests across 5 files. [1032.12s]

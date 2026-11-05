@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task": {
+    "dataset_path": "./series.csv", "time_col": "date", "target_col": "target", "frequency": "h",
+    "seq_len": 24, "pred_len": 12, "window_stride": 12, "split_mode": "ratio",
+    "train_ratio": 0.6, "val_ratio": 0.2, "test_ratio": 0.2,
+    "model_families": ["Naive", "SeasonalNaive", "Linear"], "reflection_enabled": true,
+    "business_context": "Synthetic hourly series. Daily periodicity and gradual trend are possible; infer them from training analysis."
+  },
+  "llm": {
+    "provider": "openai-compatible", "base_url": "https://api.kabuai.cn/v1",
+    "api_key_env": "LLM-API-KEY", "model": "deepseek-v4.1-flash", "temperature": 0.7,
+    "context_window_tokens": 64000, "max_output_tokens": 4096
+  },
+  "execution": { "max_experiments": 6 },
+  "decisions": { "adjustment": { "strategy": "agent" } },
+  "memory": { "enabled": true, "directory": "./memory" }
+}

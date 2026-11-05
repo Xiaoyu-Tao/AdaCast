@@ -1,0 +1,61 @@
+{
+  "case": "holt_defaults",
+  "model": "Holt",
+  "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+  "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+  "old_hyperparams": {},
+  "new_params": {},
+  "splits": {
+    "val": {
+      "old_metrics": {
+        "mse": 0.9670549283909582,
+        "mae": 0.9498340797229962,
+        "wape": 0.5968140953470807,
+        "mase": 11.247296924976283
+      },
+      "new_metrics": {
+        "mse": 0.9670549283909582,
+        "mae": 0.9498340797229962,
+        "wape": 0.5968140953470807,
+        "mase": 11.247296924976283
+      },
+      "mse_change_percent": 0.0,
+      "old_points": 1728,
+      "new_points": 1728,
+      "aligned_points": 1728,
+      "max_abs_actual_difference": 0.0,
+      "prediction_mae_between_versions": 0.0,
+      "prediction_rmse_between_versions": 0.0,
+      "max_abs_prediction_difference": 0.0
+    },
+    "test": {
+      "old_metrics": {
+        "mse": 0.2795319241193742,
+        "mae": 0.44924477773788735,
+        "wape": 0.3988603834964871,
+        "mase": 5.319654785061575
+      },
+      "new_metrics": {
+        "mse": 0.2795319241193742,
+        "mae": 0.44924477773788735,
+        "wape": 0.3988603834964871,
+        "mase": 5.319654785061575
+      },
+      "mse_change_percent": 0.0,
+      "old_points": 3456,
+      "new_points": 3456,
+      "aligned_points": 3456,
+      "max_abs_actual_difference": 0.0,
+      "prediction_mae_between_versions": 0.0,
+      "prediction_rmse_between_versions": 0.0,
+      "max_abs_prediction_difference": 0.0
+    }
+  },
+  "timings_seconds": {
+    "old_val": 2.938074473000597,
+    "old_test": 3.0073024969897233,
+    "new_val": 1.7960271560004912,
+    "new_test": 1.4941851510084234
+  },
+  "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/holt_defaults"
+}

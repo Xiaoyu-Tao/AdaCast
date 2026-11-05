@@ -1,0 +1,61 @@
+{
+  "case": "dlinear_univariate_defaults",
+  "model": "DLinear",
+  "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+  "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+  "old_hyperparams": {},
+  "new_params": {},
+  "splits": {
+    "val": {
+      "old_metrics": {
+        "mse": 0.10709625272888468,
+        "mae": 0.24673497542324993,
+        "wape": 0.15503224646419891,
+        "mase": 2.9216697838124857
+      },
+      "new_metrics": {
+        "mse": 0.18383213143277674,
+        "mae": 0.33548750459529314,
+        "wape": 0.2107985734946872,
+        "mase": 3.972617595035291
+      },
+      "mse_change_percent": 71.65131995621712,
+      "old_points": 1728,
+      "new_points": 1728,
+      "aligned_points": 1728,
+      "max_abs_actual_difference": 2.1336840472230278e-07,
+      "prediction_mae_between_versions": 0.2518805326738705,
+      "prediction_rmse_between_versions": 0.3169333106936206,
+      "max_abs_prediction_difference": 1.2680965662002563
+    },
+    "test": {
+      "old_metrics": {
+        "mse": 0.12102072868158949,
+        "mae": 0.2769724344934393,
+        "wape": 0.24590899419306042,
+        "mase": 3.27972145586706
+      },
+      "new_metrics": {
+        "mse": 0.1804251241892384,
+        "mae": 0.3375276298952805,
+        "wape": 0.299672705332397,
+        "mase": 3.996775387953937
+      },
+      "mse_change_percent": 49.08613272685236,
+      "old_points": 3456,
+      "new_points": 3456,
+      "aligned_points": 3456,
+      "max_abs_actual_difference": 1.2097226131935201e-07,
+      "prediction_mae_between_versions": 0.19780653125942788,
+      "prediction_rmse_between_versions": 0.2508119546070209,
+      "max_abs_prediction_difference": 1.1247602105140686
+    }
+  },
+  "timings_seconds": {
+    "old_val": 4.4197321870015,
+    "old_test": 2.8759032279776875,
+    "new_val": 2.956570738024311,
+    "new_test": 1.9862937230209354
+  },
+  "artifact_directory": "/tmp/adacast-lite-parity-c0mx6sdz/dlinear_univariate_defaults"
+}

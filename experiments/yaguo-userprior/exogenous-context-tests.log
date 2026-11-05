@@ -1,0 +1,11 @@
+bun test v1.3.13 (bf2e2cec)
+
+tests/exogenous-context.test.ts:
+(pass) an unassessed cancelled prior must be assessed before evidence seeking resumes [2.03ms]
+(pass) unified context fusion honors an explicit recent exogenous suffix while retaining all load history [6.34ms]
+(pass) cancelling one isolated child does not raise a fatal parent cancellation [1.27ms]
+
+ 3 pass
+ 0 fail
+ 16 expect() calls
+Ran 3 tests across 1 file. [1.71s]

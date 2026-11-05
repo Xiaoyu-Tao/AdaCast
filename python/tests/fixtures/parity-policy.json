@@ -1,0 +1,136 @@
+{
+  "controller_version": "2",
+  "frozen_at": "2026-11-02T07:34:09.355594+00:00",
+  "enabled": true,
+  "max_reflection_rounds": 3,
+  "max_format_retries": 2,
+  "trigger_policy": {
+    "hard_violation_count": 1,
+    "independent_soft_violation_count": 2
+  },
+  "target_scale": {
+    "training": {
+      "observed_min": 9.190707211024622,
+      "observed_max": 13.066627592040485,
+      "mean": 11.109992979058465,
+      "std": 0.9371035235695421,
+      "iqr": 1.368092869238943,
+      "range": 3.875920381015863,
+      "q001": 9.193236185356332,
+      "q01": 9.246165962802042,
+      "q99": 13.005384857192466,
+      "q999": 13.066552922966366,
+      "diff_q99": 0.2591099190137087,
+      "diff_q995": 0.25925979036704727,
+      "curvature_q99": 0.06216109511660521,
+      "curvature_q995": 0.06216923182913199
+    },
+    "validation_front": {
+      "observed_min": 11.20024482664138,
+      "observed_max": 13.321492279280378,
+      "mean": 12.124276617198689,
+      "std": 0.6976204106662695,
+      "iqr": 1.2288849463540572,
+      "range": 2.121247452638997,
+      "q001": 11.200791026845486,
+      "q01": 11.205706828682438,
+      "q99": 13.318475408361834,
+      "q999": 13.321190592188524,
+      "diff_q99": 0.25759497963743194,
+      "diff_q995": 0.25810918399526905,
+      "curvature_q99": 0.06216758696082476,
+      "curvature_q995": 0.06216947153587751
+    },
+    "calibrated": {
+      "observed_min": 9.190707211024622,
+      "observed_max": 13.321492279280378,
+      "mean": 11.254890641649927,
+      "std": 0.9737597452968841,
+      "iqr": 1.4145636876367895,
+      "range": 4.130785068255756,
+      "q001": 9.193659641523503,
+      "q01": 9.258382532718484,
+      "q99": 13.25523391646601,
+      "q999": 13.319328751850222,
+      "diff_q99": 0.25903085002383097,
+      "diff_q995": 0.25923673443768225,
+      "curvature_q99": 0.06216632458099554,
+      "curvature_q995": 0.06217094459818751
+    }
+  },
+  "calibration": {
+    "method": "training_baseline_validation_front_calibration_v2",
+    "source_split": "validation_front",
+    "training_row_count": 216,
+    "validation_front_row_count": 36,
+    "validation_front_window_count": 4,
+    "validation_back_used": false,
+    "test_used": false,
+    "validation_front_window_statistics": {
+      "window_count": 4,
+      "range": {
+        "min": 1.442457818535761,
+        "q10": 1.473723537562089,
+        "q50": 1.574860081662072,
+        "q90": 1.6954068513074094,
+        "q99": 1.731032799712884,
+        "max": 1.7349912384246036
+      },
+      "max_abs_step": {
+        "min": 0.23881867520605482,
+        "q10": 0.23881867520605482,
+        "q50": 0.2487210317795805,
+        "q90": 0.25862338835310617,
+        "q99": 0.25862338835310617,
+        "max": 0.25862338835310617
+      },
+      "max_abs_curvature": {
+        "min": 0.06173201235737835,
+        "q10": 0.06173201235737835,
+        "q50": 0.0619459734006611,
+        "q90": 0.06216792961083435,
+        "q99": 0.06217101346092068,
+        "max": 0.062171356110930276
+      }
+    },
+    "validation_front_reference_replay": {
+      "max_reference_trigger_rate": 0.1,
+      "initial_trigger_count": 0,
+      "initial_trigger_rate": 0.0,
+      "final_trigger_count": 0,
+      "final_trigger_rate": 0.0,
+      "hard_violation_window_count": 0,
+      "soft_threshold_adjustment_rounds": 0
+    },
+    "calibrated_rules": [
+      "absolute_range",
+      "adjacent_step",
+      "curvature",
+      "severe_flat_window",
+      "flat_window",
+      "window_mean_correction",
+      "point_emergency_correction"
+    ]
+  },
+  "constraints": {
+    "nonnegative": true,
+    "absolute_min": 0.0,
+    "absolute_max": 18.270301658578987,
+    "soft_absolute_min": 9.230091258965748,
+    "soft_absolute_max": 13.283525190218745,
+    "soft_abs_step": 0.25862338835310617,
+    "max_abs_step": 0.38885510165652337,
+    "soft_abs_curvature": 0.06216792961083435,
+    "max_abs_curvature": 0.09325641689728127,
+    "hard_min_window_range": 0.7212289092678805,
+    "min_window_range": 1.1052926531715668,
+    "window_mean_abs_delta_limit": 1.0609227657275921,
+    "point_emergency_delta_limit": 5.658254750547158
+  },
+  "planner_rationale": "Moderate target-scale safety limits derived from training data and calibrated on validation-front only.",
+  "validation_gate": {
+    "metric": "mse",
+    "accept_if": "final_mse <= baseline_mse",
+    "zero_trigger": "enabled_no_trigger"
+  }
+}

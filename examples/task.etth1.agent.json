@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task": {
+    "dataset_path": "../../dataset/ETTh1.csv",
+    "time_col": "date",
+    "target_col": "OT",
+    "frequency": "h",
+    "strict_frequency": true,
+    "seq_len": 96,
+    "label_len": 48,
+    "pred_len": 96,
+    "forecast_gap": 0,
+    "window_stride": 96,
+    "split_mode": "ratio",
+    "train_ratio": 0.6,
+    "val_ratio": 0.2,
+    "test_ratio": 0.2,
+    "eval_metrics": ["mse", "mae", "wape", "mase"],
+    "model_families": ["DLinear", "Holt", "ARIMA"],
+    "reflection_enabled": true,
+    "business_context": "Forecast OT in the supplied ETTh1 CSV. Preserve the declared chronological split and training-only normalization. All complete numeric columns are model inputs; domain claims require supplied evidence."
+  },
+  "llm": {
+    "provider": "openai-compatible",
+    "base_url": "https://api.kabuai.cn/v1",
+    "api_key_env": "LLM-API-KEY",
+    "model": "deepseek-v4.1-flash",
+    "temperature": 0.7,
+    "context_window_tokens": 64000,
+    "max_output_tokens": 8192
+  },
+  "execution": {
+    "mode": "agent",
+    "max_experiments": 6
+  },
+  "decisions": {
+    "adjustment": {"strategy": "agent"}
+  },
+  "memory": {"enabled": false}
+}

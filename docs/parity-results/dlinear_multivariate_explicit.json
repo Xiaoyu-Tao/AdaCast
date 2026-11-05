@@ -1,0 +1,74 @@
+{
+  "case": "dlinear_multivariate_explicit",
+  "model": "DLinear",
+  "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/dataset/ETTh1.csv",
+  "dataset_sha256": "aaf53becad03ad8a7e93cf96452244f423480df960d769e12d66d4a5c570ddb0",
+  "old_hyperparams": {
+    "train_epochs": 2,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "moving_avg": 25
+  },
+  "new_params": {
+    "epochs": 2,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "kernel": 25,
+    "seed": 42,
+    "device": "cpu",
+    "threads": 2
+  },
+  "splits": {
+    "val": {
+      "old_metrics": {
+        "mse": 0.23803753625711566,
+        "mae": 0.38851159162543436,
+        "wape": 0.24411547136254472,
+        "mase": 4.600493205171943
+      },
+      "new_metrics": {
+        "mse": 0.9936549365032287,
+        "mae": 0.7459616221565163,
+        "wape": 0.4687138676657069,
+        "mase": 8.83317627276429
+      },
+      "mse_change_percent": 317.436238051941,
+      "old_points": 1728,
+      "new_points": 1728,
+      "aligned_points": 1728,
+      "max_abs_actual_difference": 2.1336840472230278e-07,
+      "prediction_mae_between_versions": 0.5826472001650406,
+      "prediction_rmse_between_versions": 0.7733921132333621,
+      "max_abs_prediction_difference": 3.201866865158081
+    },
+    "test": {
+      "old_metrics": {
+        "mse": 0.18571738364952178,
+        "mae": 0.3425485759780039,
+        "wape": 0.30413053896528247,
+        "mase": 4.056230059018307
+      },
+      "new_metrics": {
+        "mse": 0.572248872168288,
+        "mae": 0.5728391079683168,
+        "wape": 0.508593163938378,
+        "mase": 6.783175791254741
+      },
+      "mse_change_percent": 208.12886813450518,
+      "old_points": 3456,
+      "new_points": 3456,
+      "aligned_points": 3456,
+      "max_abs_actual_difference": 1.2097226131935201e-07,
+      "prediction_mae_between_versions": 0.42332490784583904,
+      "prediction_rmse_between_versions": 0.5697882308965673,
+      "max_abs_prediction_difference": 2.7230724096298218
+    }
+  },
+  "timings_seconds": {
+    "old_val": 4.409306490997551,
+    "old_test": 3.105441243998939,
+    "new_val": 3.1871665100043174,
+    "new_test": 2.000213275983697
+  },
+  "artifact_directory": "/tmp/adacast-lite-parity-c0mx6sdz/dlinear_multivariate_explicit"
+}

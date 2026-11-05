@@ -1,0 +1,19 @@
+bun test v1.3.13 (bf2e2cec)
+
+tests/llm-policy.test.ts:
+(pass) sampling defaults match the recorded reference model policy [4.29ms]
+(pass) declared model limits permit 64K window output and retain compatible 32K checkpoints [140.40ms]
+(pass) HTTP requests honor role parameters, model limits, token usage and tool-name repair [151.24ms]
+(pass) unknown models omit sampling defaults and incompatible tool capability fails before HTTP [224.10ms]
+(pass) default provider retries are zero and truncated responses do not restart generation [661.06ms]
+(pass) provider context overflow compacts once, replays the latest turn and records all calls [367.74ms]
+(pass) reference pruning protects two recent turns and skill outputs without deleting audit history [732.20ms]
+(pass) reported token counts trigger compaction even when the current estimate is small [289.46ms]
+(pass) tool output follows the reference byte and line limits [1.10ms]
+(pass) fatal window-call budgets abort the owning domain scope [46.42ms]
+(pass) disabled automatic compaction preserves a fitting projection despite old reported usage [50.58ms]
+
+ 11 pass
+ 0 fail
+ 68 expect() calls
+Ran 11 tests across 1 file. [9.04s]

@@ -1,0 +1,74 @@
+{
+  "case": "dlinear_univariate_repeat",
+  "model": "DLinear",
+  "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+  "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+  "old_hyperparams": {
+    "train_epochs": 2,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "moving_avg": 25
+  },
+  "new_params": {
+    "epochs": 2,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "kernel": 25,
+    "seed": 42,
+    "device": "cpu",
+    "threads": 2
+  },
+  "splits": {
+    "val": {
+      "old_metrics": {
+        "mse": 0.09937974891415377,
+        "mae": 0.24642647554477057,
+        "wape": 0.1548384051609441,
+        "mase": 2.9180167355500055
+      },
+      "new_metrics": {
+        "mse": 0.09937974891415377,
+        "mae": 0.24642647554477057,
+        "wape": 0.1548384051609441,
+        "mase": 2.9180167355500055
+      },
+      "mse_change_percent": 0.0,
+      "old_points": 1728,
+      "new_points": 1728,
+      "aligned_points": 1728,
+      "max_abs_actual_difference": 0.0,
+      "prediction_mae_between_versions": 0.0,
+      "prediction_rmse_between_versions": 0.0,
+      "max_abs_prediction_difference": 0.0
+    },
+    "test": {
+      "old_metrics": {
+        "mse": 0.12363850700998089,
+        "mae": 0.27965995960106804,
+        "wape": 0.24829510383351722,
+        "mase": 3.3115453222918623
+      },
+      "new_metrics": {
+        "mse": 0.12363850700998089,
+        "mae": 0.27965995960106804,
+        "wape": 0.24829510383351722,
+        "mase": 3.3115453222918623
+      },
+      "mse_change_percent": 0.0,
+      "old_points": 3456,
+      "new_points": 3456,
+      "aligned_points": 3456,
+      "max_abs_actual_difference": 0.0,
+      "prediction_mae_between_versions": 0.0,
+      "prediction_rmse_between_versions": 0.0,
+      "max_abs_prediction_difference": 0.0
+    }
+  },
+  "timings_seconds": {
+    "old_val": 3.9134497359918896,
+    "old_test": 2.8457395970181096,
+    "new_val": 4.961558744020294,
+    "new_test": 3.3736078960064333
+  },
+  "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/dlinear_univariate_repeat"
+}

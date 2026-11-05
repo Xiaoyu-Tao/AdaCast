@@ -1,0 +1,27 @@
+{
+  "metrics": {
+    "chronos2": {
+      "mse": 3017.838266880548,
+      "rmse": 54.93485475434105,
+      "mae": 31.164479243506946,
+      "wape": 0.6612105615858911,
+      "mase": 7.723864602778075
+    },
+    "adjusted": {
+      "mse": 3021.8342579249243,
+      "rmse": 54.97121299302867,
+      "mae": 31.134927459997684,
+      "wape": 0.6605835672691452,
+      "mase": 7.7165404317944155
+    },
+    "adacast_final": {
+      "mse": 2338.007847806539,
+      "rmse": 48.3529507662825,
+      "mae": 30.52693489700351,
+      "wape": 0.6476839099100004,
+      "mase": 7.5658543831243925
+    }
+  },
+  "mse_improvement_ratio": 0.2252706603050435,
+  "summary": "/mnt/d/kawai10726/work/codes/project/AdaCast/adacast-lite/experiments/windy-chronos2-ms-visible/summary.json"
+}

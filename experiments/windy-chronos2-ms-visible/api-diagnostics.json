@@ -1,0 +1,35 @@
+{
+  "original_endpoint": "https://api.kabuai.cn/v1/chat/completions",
+  "diagnostic_time_utc": "2026-11-03T10:17:59Z--2026-11-03T10:21:43Z",
+  "probe_body": "Empty JSON object followed by whitespace; intentionally missing model/messages so successful application-layer handling returns HTTP 400 without invoking a model.",
+  "original_body_size_results": {
+    "256": 400,
+    "8192": 400,
+    "16384": 500,
+    "32768": 500,
+    "65536": 500,
+    "524288": 500
+  },
+  "original_error_server": "nginx/1.18.0 (Ubuntu)",
+  "official_endpoint_discovery": {
+    "source": "https://api.kabuai.cn/api/status",
+    "field": "data.api_info",
+    "route": "高级订阅用户",
+    "url": "https://xin.kabuai.cn/v1"
+  },
+  "alternate_body_size_results": {
+    "8192": 400,
+    "65536": 400,
+    "900000": 400
+  },
+  "alternate_authenticated_model_probe": {
+    "http_status": 200,
+    "model": "deepseek-v4.1-flash",
+    "prompt": "Reply with OK only.",
+    "response": "OK",
+    "elapsed_ms": 1143,
+    "total_tokens": 55
+  },
+  "interpretation": "Original virtual host exhibited a request-body-size-dependent HTTP failure; the alternate official host accepted large request bodies and the existing credential/model. Exact original server-side cause requires its logs.",
+  "credential_values_recorded": false
+}

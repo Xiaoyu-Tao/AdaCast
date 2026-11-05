@@ -1,0 +1,145 @@
+{"audited_rows": 12000}
+{"audited_rows": 24000}
+{"audited_rows": 36000}
+{"audited_rows": 48000}
+{"audited_rows": 60000}
+{"audited_rows": 72000}
+{"audited_rows": 84000}
+{"audited_rows": 96000}
+{"audited_rows": 108000}
+{"audited_rows": 120000}
+{"audited_rows": 132000}
+{"audited_rows": 144000}
+{"audited_rows": 156000}
+{"audited_rows": 168000}
+{"audited_rows": 180000}
+{"audited_rows": 192000}
+{"audited_rows": 193216}
+{
+  "source_prompt": "/mnt/d/kawai10726/work/codes/project/AdaCast/adacast-lite/dataset/prompt_yaguo.md",
+  "truth_path": "/mnt/d/kawai10726/work/temp/cast/dataset/huabei_load_weather_selector_truth_scope.csv",
+  "prior_path": "/mnt/d/kawai10726/work/temp/cast/dataset/huabei_load_weather_selector_prediction_prior.csv",
+  "truth_sha256": "5cd7ae88f1777fba9dbe190f405efcc620824c2f9e19961ff5e35695c57b50c6",
+  "prior_sha256": "608b4da2683a119917fe374d9f3228e9957601cb34ebcc65e90a23f47eb3c4c8",
+  "rows": 193216,
+  "start": "2021-01-01 08:00:00",
+  "end": "2026-07-06 23:45:00",
+  "train_end": 157543,
+  "adjustment_fit_end": 161959,
+  "validation_end": 166375,
+  "selected_city": "秦皇岛市",
+  "exogenous_columns": [
+    "秦皇岛市_t2m",
+    "秦皇岛市_q",
+    "秦皇岛市_ssrd",
+    "最高温",
+    "最低温",
+    "天气",
+    "风向风力",
+    "日照",
+    "最高温_数值",
+    "最低温_数值",
+    "前一日最高温",
+    "前一日最低温",
+    "前一日天气",
+    "最高温变化",
+    "最低温变化",
+    "最大温差绝对值",
+    "是否极端天气",
+    "是否重合",
+    "环保",
+    "政策",
+    "节假日"
+  ],
+  "exogenous_history_steps": 288,
+  "target_history_steps": 711,
+  "anchors": {
+    "global": {
+      "row": 157543,
+      "timestamp": "2025-06-30 09:45:00"
+    },
+    "test_search": {
+      "row": 166375,
+      "timestamp": "2025-09-30 09:45:00"
+    }
+  },
+  "splits": {
+    "adjustment_fit": {
+      "tasks": 45,
+      "first": {
+        "split": "adjustment_fit",
+        "window_index": 0,
+        "history_start": "2025-06-23 09:45:00",
+        "history_end": "2025-06-30 19:15:00",
+        "origin_index": 157582,
+        "target_start_index": 157639,
+        "target_start": "2025-07-01 09:45:00",
+        "target_end": "2025-07-02 09:30:00"
+      },
+      "last": {
+        "split": "adjustment_fit",
+        "window_index": 44,
+        "history_start": "2025-08-06 09:45:00",
+        "history_end": "2025-08-13 19:15:00",
+        "origin_index": 161806,
+        "target_start_index": 161863,
+        "target_start": "2025-08-14 09:45:00",
+        "target_end": "2025-08-15 09:30:00"
+      }
+    },
+    "val": {
+      "tasks": 45,
+      "first": {
+        "split": "val",
+        "window_index": 0,
+        "history_start": "2025-08-08 09:45:00",
+        "history_end": "2025-08-15 19:15:00",
+        "origin_index": 161998,
+        "target_start_index": 162055,
+        "target_start": "2025-08-16 09:45:00",
+        "target_end": "2025-08-17 09:30:00"
+      },
+      "last": {
+        "split": "val",
+        "window_index": 44,
+        "history_start": "2025-09-21 09:45:00",
+        "history_end": "2025-09-28 19:15:00",
+        "origin_index": 166222,
+        "target_start_index": 166279,
+        "target_start": "2025-09-29 09:45:00",
+        "target_end": "2025-09-30 09:30:00"
+      }
+    },
+    "test": {
+      "tasks": 278,
+      "first": {
+        "split": "test",
+        "window_index": 0,
+        "history_start": "2025-09-23 09:45:00",
+        "history_end": "2025-09-30 19:15:00",
+        "origin_index": 166414,
+        "target_start_index": 166471,
+        "target_start": "2025-10-01 09:45:00",
+        "target_end": "2025-10-02 09:30:00"
+      },
+      "last": {
+        "split": "test",
+        "window_index": 277,
+        "history_start": "2026-06-27 09:45:00",
+        "history_end": "2026-07-04 19:15:00",
+        "origin_index": 193006,
+        "target_start_index": 193063,
+        "target_start": "2026-07-05 09:45:00",
+        "target_end": "2026-07-06 09:30:00"
+      }
+    }
+  },
+  "checks": {
+    "same_schema_and_timestamps": true,
+    "all_non_target_values_identical": true,
+    "training_target_unchanged": true,
+    "strict_15min_grid": true,
+    "finite_targets": true
+  }
+}
+{"type": "preparation_grid_finalized", "source": "Explicit midnight target starts in prompt_yaguo.md override inferred first changed gap rows", "prediction_grid_anchor": {"row": 157600, "timestamp": "2025-07-01 00:00:00", "source": "explicit experiment first validation target"}, "splits": {"adjustment_fit": {"tasks": 45, "first": {"split": "adjustment_fit", "window_index": 0, "history_start": "2025-06-23 00:00:00", "history_end": "2025-06-30 09:30:00", "origin_index": 157543, "target_start_index": 157600, "target_start": "2025-07-01 00:00:00", "target_end": "2025-07-01 23:45:00"}, "last": {"split": "adjustment_fit", "window_index": 44, "history_start": "2025-08-06 00:00:00", "history_end": "2025-08-13 09:30:00", "origin_index": 161767, "target_start_index": 161824, "target_start": "2025-08-14 00:00:00", "target_end": "2025-08-14 23:45:00"}}, "val": {"tasks": 45, "first": {"split": "val", "window_index": 0, "history_start": "2025-08-08 00:00:00", "history_end": "2025-08-15 09:30:00", "origin_index": 161959, "target_start_index": 162016, "target_start": "2025-08-16 00:00:00", "target_end": "2025-08-16 23:45:00"}, "last": {"split": "val", "window_index": 44, "history_start": "2025-09-21 00:00:00", "history_end": "2025-09-28 09:30:00", "origin_index": 166183, "target_start_index": 166240, "target_start": "2025-09-29 00:00:00", "target_end": "2025-09-29 23:45:00"}}, "test": {"tasks": 279, "first": {"split": "test", "window_index": 0, "history_start": "2025-09-23 00:00:00", "history_end": "2025-09-30 09:30:00", "origin_index": 166375, "target_start_index": 166432, "target_start": "2025-10-01 00:00:00", "target_end": "2025-10-01 23:45:00"}, "last": {"split": "test", "window_index": 278, "history_start": "2026-06-28 00:00:00", "history_end": "2026-07-05 09:30:00", "origin_index": 193063, "target_start_index": 193120, "target_start": "2026-07-06 00:00:00", "target_end": "2026-07-06 23:45:00"}}}}

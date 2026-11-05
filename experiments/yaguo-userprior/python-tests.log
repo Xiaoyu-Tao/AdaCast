@@ -1,0 +1,27 @@
+test_diagnostics_reject_held_out_data_and_blind_windows_omit_actuals (test_backend.BackendTests.test_diagnostics_reject_held_out_data_and_blind_windows_omit_actuals) ... ok
+test_dlinear_checkpoint_is_reused_without_fitting (test_backend.BackendTests.test_dlinear_checkpoint_is_reused_without_fitting) ... skipped 'optional neural dependency is not installed'
+test_portable_prediction_uses_saved_training_scale (test_backend.BackendTests.test_portable_prediction_uses_saved_training_scale) ... ok
+test_prior_requires_identical_non_target_columns (test_backend.BackendTests.test_prior_requires_identical_non_target_columns) ... ok
+test_source_hash_tamper_is_detected (test_backend.BackendTests.test_source_hash_tamper_is_detected) ... ok
+test_test_inference_reuses_exact_model_and_spec (test_backend.BackendTests.test_test_inference_reuses_exact_model_and_spec) ... ok
+test_test_split_cannot_fit (test_backend.BackendTests.test_test_split_cannot_fit) ... ok
+test_timestamp_split_and_forecast_coordinates (test_backend.BackendTests.test_timestamp_split_and_forecast_coordinates) ... ok
+test_training_scale_does_not_use_future_targets (test_backend.BackendTests.test_training_scale_does_not_use_future_targets) ... ok
+test_city_allowlist_and_three_day_history_preserve_target_history_and_hide_future_target (test_exogenous_scope.ExogenousScopeTests.test_city_allowlist_and_three_day_history_preserve_target_history_and_hide_future_target) ... ok
+test_explicit_daily_prior_grid_is_not_shifted_by_changed_gap_values (test_exogenous_scope.ExogenousScopeTests.test_explicit_daily_prior_grid_is_not_shifted_by_changed_gap_values) ... ok
+test_recorded_original_calibration_policy (test_parity.ReferenceParityTests.test_recorded_original_calibration_policy) ... ok
+test_recorded_original_predictions_metrics_and_gap_grid (test_parity.ReferenceParityTests.test_recorded_original_predictions_metrics_and_gap_grid) ... ok
+test_recorded_original_user_prior_scale_and_global_grid (test_parity.ReferenceParityTests.test_recorded_original_user_prior_scale_and_global_grid) ... ok
+test_calendar_aware_transformer_runs_with_monthly_feature_width (test_time_and_catalog.CalendarAndCatalogTests.test_calendar_aware_transformer_runs_with_monthly_feature_width) ... skipped 'neural extra is not installed'
+test_calendar_frequencies_keep_observed_rows_and_normalized_values (test_time_and_catalog.CalendarAndCatalogTests.test_calendar_frequencies_keep_observed_rows_and_normalized_values) ... ok
+test_catalog_requires_neither_dataset_nor_foundation_weight_download (test_time_and_catalog.CalendarAndCatalogTests.test_catalog_requires_neither_dataset_nor_foundation_weight_download) ... ok
+test_crossformer_imports_only_the_owned_model_namespace (test_time_and_catalog.CalendarAndCatalogTests.test_crossformer_imports_only_the_owned_model_namespace) ... skipped 'neural extra is not installed'
+test_history_only_bridge_preserves_complete_daily_prior_windows (test_time_and_catalog.CalendarAndCatalogTests.test_history_only_bridge_preserves_complete_daily_prior_windows) ... ok
+test_irregular_series_uses_row_grid_and_strict_mode_is_explicit (test_time_and_catalog.CalendarAndCatalogTests.test_irregular_series_uses_row_grid_and_strict_mode_is_explicit) ... ok
+test_minute_and_month_aliases_have_distinct_reference_semantics (test_time_and_catalog.CalendarAndCatalogTests.test_minute_and_month_aliases_have_distinct_reference_semantics) ... ok
+test_model_aliases_and_catalog_match_independent_runtime_registry (test_time_and_catalog.CalendarAndCatalogTests.test_model_aliases_and_catalog_match_independent_runtime_registry) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.455s
+
+OK (skipped=3)

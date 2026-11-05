@@ -1,0 +1,689 @@
+{
+  "scope": "Actual raw forecasting backends; no live LLM/adjustment/window-reflection comparison",
+  "common_task": {
+    "time_col": "date",
+    "target_col": "OT",
+    "seq_len": 96,
+    "pred_len": 96,
+    "label_len": 48,
+    "forecast_gap": 0,
+    "window_stride": 96,
+    "split_mode": "ratio",
+    "train_ratio": 0.6,
+    "val_ratio": 0.2,
+    "test_ratio": 0.2
+  },
+  "execution": {
+    "device": "cpu",
+    "torch_threads": 2,
+    "seed": 42,
+    "python": "/home/kawai1/miniconda3/envs/cast/bin/python"
+  },
+  "data_contract": [
+    {
+      "case": "univariate",
+      "old_features": [
+        "OT"
+      ],
+      "new_features": [
+        "OT"
+      ],
+      "boundaries": {
+        "train": [
+          0,
+          10452
+        ],
+        "adjustment_fit": [
+          10452,
+          12194
+        ],
+        "val": [
+          12194,
+          13936
+        ],
+        "test": [
+          13936,
+          17420
+        ]
+      },
+      "splits": {
+        "train": {
+          "old_windows": 107,
+          "new_windows": 107,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        },
+        "adjustment_fit": {
+          "old_windows": 18,
+          "new_windows": 18,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        },
+        "val": {
+          "old_windows": 18,
+          "new_windows": 18,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        },
+        "test": {
+          "old_windows": 36,
+          "new_windows": 36,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        }
+      }
+    },
+    {
+      "case": "multivariate",
+      "old_features": [
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL",
+        "LUFL",
+        "LULL",
+        "OT"
+      ],
+      "new_features": [
+        "HUFL",
+        "HULL",
+        "MUFL",
+        "MULL",
+        "LUFL",
+        "LULL",
+        "OT"
+      ],
+      "boundaries": {
+        "train": [
+          0,
+          10452
+        ],
+        "adjustment_fit": [
+          10452,
+          12194
+        ],
+        "val": [
+          12194,
+          13936
+        ],
+        "test": [
+          13936,
+          17420
+        ]
+      },
+      "splits": {
+        "train": {
+          "old_windows": 107,
+          "new_windows": 107,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        },
+        "adjustment_fit": {
+          "old_windows": 18,
+          "new_windows": 18,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        },
+        "val": {
+          "old_windows": 18,
+          "new_windows": 18,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        },
+        "test": {
+          "old_windows": 36,
+          "new_windows": 36,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        }
+      }
+    },
+    {
+      "case": "gap7_stride24",
+      "old_features": [
+        "OT"
+      ],
+      "new_features": [
+        "OT"
+      ],
+      "boundaries": {
+        "train": [
+          0,
+          10452
+        ],
+        "adjustment_fit": [
+          10452,
+          12194
+        ],
+        "val": [
+          12194,
+          13936
+        ],
+        "test": [
+          13936,
+          17420
+        ]
+      },
+      "splits": {
+        "train": {
+          "old_windows": 428,
+          "new_windows": 428,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        },
+        "adjustment_fit": {
+          "old_windows": 69,
+          "new_windows": 69,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        },
+        "val": {
+          "old_windows": 69,
+          "new_windows": 69,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        },
+        "test": {
+          "old_windows": 141,
+          "new_windows": 141,
+          "origin_indices_equal": true,
+          "max_abs_normalized_target_difference": 0.0
+        }
+      }
+    }
+  ],
+  "results": [
+    {
+      "case": "arima_order_111",
+      "model": "ARIMA",
+      "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+      "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+      "old_hyperparams": {
+        "order": [
+          1,
+          1,
+          1
+        ]
+      },
+      "new_params": {
+        "p": 1,
+        "d": 1,
+        "q": 1
+      },
+      "splits": {
+        "val": {
+          "old_metrics": {
+            "mse": 2.0062291187657775,
+            "mae": 1.3873561349855332,
+            "wape": 0.8717245614803424,
+            "mase": 16.428139107643332
+          },
+          "new_metrics": {
+            "mse": 2.0062291187657775,
+            "mae": 1.3873561349855332,
+            "wape": 0.8717245614803424,
+            "mase": 16.428139107643332
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 1728,
+          "new_points": 1728,
+          "aligned_points": 1728,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        },
+        "test": {
+          "old_metrics": {
+            "mse": 1.014930761733299,
+            "mae": 0.9240663134119471,
+            "wape": 0.8204290008658022,
+            "mase": 10.942172351136723
+          },
+          "new_metrics": {
+            "mse": 1.014930761733299,
+            "mae": 0.9240663134119471,
+            "wape": 0.8204290008658022,
+            "mase": 10.942172351136723
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 3456,
+          "new_points": 3456,
+          "aligned_points": 3456,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        }
+      },
+      "timings_seconds": {
+        "old_val": 3.4050692309974693,
+        "old_test": 3.014874807005981,
+        "new_val": 1.771699458011426,
+        "new_test": 1.7160089749959297
+      },
+      "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/arima_order_111"
+    },
+    {
+      "case": "dlinear_multivariate_explicit",
+      "model": "DLinear",
+      "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/dataset/ETTh1.csv",
+      "dataset_sha256": "aaf53becad03ad8a7e93cf96452244f423480df960d769e12d66d4a5c570ddb0",
+      "old_hyperparams": {
+        "train_epochs": 2,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "moving_avg": 25
+      },
+      "new_params": {
+        "epochs": 2,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "kernel": 25,
+        "seed": 42,
+        "device": "cpu",
+        "threads": 2
+      },
+      "splits": {
+        "val": {
+          "old_metrics": {
+            "mse": 0.23803753625711566,
+            "mae": 0.38851159162543436,
+            "wape": 0.24411547136254472,
+            "mase": 4.600493205171943
+          },
+          "new_metrics": {
+            "mse": 0.23803753625711566,
+            "mae": 0.38851159162543436,
+            "wape": 0.24411547136254472,
+            "mase": 4.600493205171943
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 1728,
+          "new_points": 1728,
+          "aligned_points": 1728,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        },
+        "test": {
+          "old_metrics": {
+            "mse": 0.18571738364952178,
+            "mae": 0.3425485759780039,
+            "wape": 0.30413053896528247,
+            "mase": 4.056230059018307
+          },
+          "new_metrics": {
+            "mse": 0.18571738364952178,
+            "mae": 0.3425485759780039,
+            "wape": 0.30413053896528247,
+            "mase": 4.056230059018307
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 3456,
+          "new_points": 3456,
+          "aligned_points": 3456,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        }
+      },
+      "timings_seconds": {
+        "old_val": 4.136681595002301,
+        "old_test": 3.058809223002754,
+        "new_val": 4.660819831013214,
+        "new_test": 3.7505848340224475
+      },
+      "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/dlinear_multivariate_explicit"
+    },
+    {
+      "case": "dlinear_univariate_defaults",
+      "model": "DLinear",
+      "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+      "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+      "old_hyperparams": {},
+      "new_params": {},
+      "splits": {
+        "val": {
+          "old_metrics": {
+            "mse": 0.10709625272888468,
+            "mae": 0.24673497542324993,
+            "wape": 0.15503224646419891,
+            "mase": 2.9216697838124857
+          },
+          "new_metrics": {
+            "mse": 0.10709625272888468,
+            "mae": 0.24673497542324993,
+            "wape": 0.15503224646419891,
+            "mase": 2.9216697838124857
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 1728,
+          "new_points": 1728,
+          "aligned_points": 1728,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        },
+        "test": {
+          "old_metrics": {
+            "mse": 0.12102072868158949,
+            "mae": 0.2769724344934393,
+            "wape": 0.24590899419306042,
+            "mase": 3.27972145586706
+          },
+          "new_metrics": {
+            "mse": 0.12102072868158949,
+            "mae": 0.2769724344934393,
+            "wape": 0.24590899419306042,
+            "mase": 3.27972145586706
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 3456,
+          "new_points": 3456,
+          "aligned_points": 3456,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        }
+      },
+      "timings_seconds": {
+        "old_val": 4.198311334010214,
+        "old_test": 3.3627431619970594,
+        "new_val": 4.121777461987222,
+        "new_test": 3.285883817006834
+      },
+      "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/dlinear_univariate_defaults"
+    },
+    {
+      "case": "dlinear_univariate_explicit",
+      "model": "DLinear",
+      "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+      "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+      "old_hyperparams": {
+        "train_epochs": 2,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "moving_avg": 25
+      },
+      "new_params": {
+        "epochs": 2,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "kernel": 25,
+        "seed": 42,
+        "device": "cpu",
+        "threads": 2
+      },
+      "splits": {
+        "val": {
+          "old_metrics": {
+            "mse": 0.09937974891415377,
+            "mae": 0.24642647554477057,
+            "wape": 0.1548384051609441,
+            "mase": 2.9180167355500055
+          },
+          "new_metrics": {
+            "mse": 0.09937974891415377,
+            "mae": 0.24642647554477057,
+            "wape": 0.1548384051609441,
+            "mase": 2.9180167355500055
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 1728,
+          "new_points": 1728,
+          "aligned_points": 1728,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        },
+        "test": {
+          "old_metrics": {
+            "mse": 0.12363850700998089,
+            "mae": 0.27965995960106804,
+            "wape": 0.24829510383351722,
+            "mase": 3.3115453222918623
+          },
+          "new_metrics": {
+            "mse": 0.12363850700998089,
+            "mae": 0.27965995960106804,
+            "wape": 0.24829510383351722,
+            "mase": 3.3115453222918623
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 3456,
+          "new_points": 3456,
+          "aligned_points": 3456,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        }
+      },
+      "timings_seconds": {
+        "old_val": 4.184621672990033,
+        "old_test": 3.378871202003211,
+        "new_val": 4.123328208021121,
+        "new_test": 3.284189597994555
+      },
+      "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/dlinear_univariate_explicit"
+    },
+    {
+      "case": "dlinear_univariate_repeat",
+      "model": "DLinear",
+      "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+      "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+      "old_hyperparams": {
+        "train_epochs": 2,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "moving_avg": 25
+      },
+      "new_params": {
+        "epochs": 2,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "kernel": 25,
+        "seed": 42,
+        "device": "cpu",
+        "threads": 2
+      },
+      "splits": {
+        "val": {
+          "old_metrics": {
+            "mse": 0.09937974891415377,
+            "mae": 0.24642647554477057,
+            "wape": 0.1548384051609441,
+            "mase": 2.9180167355500055
+          },
+          "new_metrics": {
+            "mse": 0.09937974891415377,
+            "mae": 0.24642647554477057,
+            "wape": 0.1548384051609441,
+            "mase": 2.9180167355500055
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 1728,
+          "new_points": 1728,
+          "aligned_points": 1728,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        },
+        "test": {
+          "old_metrics": {
+            "mse": 0.12363850700998089,
+            "mae": 0.27965995960106804,
+            "wape": 0.24829510383351722,
+            "mase": 3.3115453222918623
+          },
+          "new_metrics": {
+            "mse": 0.12363850700998089,
+            "mae": 0.27965995960106804,
+            "wape": 0.24829510383351722,
+            "mase": 3.3115453222918623
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 3456,
+          "new_points": 3456,
+          "aligned_points": 3456,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        }
+      },
+      "timings_seconds": {
+        "old_val": 3.9134497359918896,
+        "old_test": 2.8457395970181096,
+        "new_val": 4.961558744020294,
+        "new_test": 3.3736078960064333
+      },
+      "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/dlinear_univariate_repeat"
+    },
+    {
+      "case": "holt_defaults",
+      "model": "Holt",
+      "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+      "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+      "old_hyperparams": {},
+      "new_params": {},
+      "splits": {
+        "val": {
+          "old_metrics": {
+            "mse": 0.9670549283909582,
+            "mae": 0.9498340797229962,
+            "wape": 0.5968140953470807,
+            "mase": 11.247296924976283
+          },
+          "new_metrics": {
+            "mse": 0.9670549283909582,
+            "mae": 0.9498340797229962,
+            "wape": 0.5968140953470807,
+            "mase": 11.247296924976283
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 1728,
+          "new_points": 1728,
+          "aligned_points": 1728,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        },
+        "test": {
+          "old_metrics": {
+            "mse": 0.2795319241193742,
+            "mae": 0.44924477773788735,
+            "wape": 0.3988603834964871,
+            "mase": 5.319654785061575
+          },
+          "new_metrics": {
+            "mse": 0.2795319241193742,
+            "mae": 0.44924477773788735,
+            "wape": 0.3988603834964871,
+            "mase": 5.319654785061575
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 3456,
+          "new_points": 3456,
+          "aligned_points": 3456,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        }
+      },
+      "timings_seconds": {
+        "old_val": 2.938074473000597,
+        "old_test": 3.0073024969897233,
+        "new_val": 1.7960271560004912,
+        "new_test": 1.4941851510084234
+      },
+      "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/holt_defaults"
+    },
+    {
+      "case": "patchtst_multivariate",
+      "model": "PatchTST",
+      "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/dataset/ETTh1.csv",
+      "dataset_sha256": "aaf53becad03ad8a7e93cf96452244f423480df960d769e12d66d4a5c570ddb0",
+      "old_hyperparams": {
+        "train_epochs": 1,
+        "d_model": 16,
+        "n_heads": 2,
+        "e_layers": 1,
+        "d_ff": 32
+      },
+      "new_params": {
+        "train_epochs": 1,
+        "d_model": 16,
+        "n_heads": 2,
+        "e_layers": 1,
+        "d_ff": 32,
+        "device": "cpu",
+        "threads": 2
+      },
+      "splits": {
+        "val": {
+          "old_metrics": {
+            "mse": 0.09518131959492922,
+            "mae": 0.24048786851818915,
+            "wape": 0.15110696989677183,
+            "mase": 2.8476957416263184
+          },
+          "new_metrics": {
+            "mse": 0.09518131959492922,
+            "mae": 0.24048786851818915,
+            "wape": 0.15110696989677183,
+            "mase": 2.8476957416263184
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 1728,
+          "new_points": 1728,
+          "aligned_points": 1728,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        },
+        "test": {
+          "old_metrics": {
+            "mse": 0.13016372470771725,
+            "mae": 0.28300560513835754,
+            "wape": 0.2512655233646379,
+            "mase": 3.3511622086164623
+          },
+          "new_metrics": {
+            "mse": 0.13016372470771725,
+            "mae": 0.28300560513835754,
+            "wape": 0.2512655233646379,
+            "mase": 3.3511622086164623
+          },
+          "mse_change_percent": 0.0,
+          "old_points": 3456,
+          "new_points": 3456,
+          "aligned_points": 3456,
+          "max_abs_actual_difference": 0.0,
+          "prediction_mae_between_versions": 0.0,
+          "prediction_rmse_between_versions": 0.0,
+          "max_abs_prediction_difference": 0.0
+        }
+      },
+      "timings_seconds": {
+        "old_val": 4.261133870983031,
+        "old_test": 4.524494838988176,
+        "new_val": 4.687233313015895,
+        "new_test": 4.676631373993587
+      },
+      "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/patchtst_multivariate"
+    }
+  ],
+  "errors": [],
+  "work_directory": "/tmp/adacast-lite-parity-vpkczuy3"
+}

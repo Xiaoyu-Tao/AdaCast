@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/mnt/d/kawai10726/work/codes/project/AdaCast/adacast-lite/scripts/summarize-yaguo.py", line 192, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/d/kawai10726/work/codes/project/AdaCast/adacast-lite/scripts/summarize-yaguo.py", line 122, in main
+    np.testing.assert_allclose([point['value'] for point in initial['predictions']],anchor.predicted,rtol=0,atol=1e-7)
+  File "/mnt/d/kawai10726/work/codes/project/AdaCast/adacast-lite/python/.venv/lib/python3.12/site-packages/numpy/testing/_private/utils.py", line 1711, in assert_allclose
+    assert_array_compare(compare, actual, desired, err_msg=str(err_msg),
+  File "/mnt/d/kawai10726/work/codes/project/AdaCast/adacast-lite/python/.venv/lib/python3.12/site-packages/numpy/testing/_private/utils.py", line 919, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0, atol=1e-07
+
+Mismatched elements: 96 / 96 (100%)
+Max absolute difference among violations: 51872.62212803
+Max relative difference among violations: 16365887.02672122
+ ACTUAL: array([45813.586004, 45334.843661, 44894.905878, 44522.890593,
+       44316.640218, 44018.987915, 43700.542824, 43276.132478,
+       42930.617218, 42587.316223, 42335.37892 , 42057.664676,...
+ DESIRED: array([-0.563753, -0.622711, -0.67689 , -0.722705, -0.748105, -0.784761,
+       -0.823978, -0.876245, -0.918796, -0.961075, -0.992101, -1.026302,
+       -1.038646, -1.061157, -1.080244, -1.095891, -1.073201, -1.080585,...

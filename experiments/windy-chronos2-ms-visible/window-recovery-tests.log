@@ -1,0 +1,11 @@
+bun test v1.3.13 (bf2e2cec)
+
+tests/window-recovery.test.ts:
+(pass) transport failures reopen even after candidate exhaustion, while genuine semantic exhaustion remains terminal [8.96ms]
+(pass) accepted flags cannot make a provider-failed terminal correction reusable [7.76ms]
+(pass) provider outage leaves test windows incomplete and recovery really invokes the healthy provider [244340.98ms]
+
+ 3 pass
+ 0 fail
+ 32 expect() calls
+Ran 3 tests across 1 file. [244.82s]

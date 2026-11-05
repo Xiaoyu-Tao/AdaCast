@@ -1,0 +1,11 @@
+{
+  "scope": "Diagnostic only. No product code or weights were changed.",
+  "method": "Load the old fitted DLinear weights into the Lite forward model by renaming tensor keys; use Lite data normalization and rolling inference.",
+  "old_test_mse": 0.12363850700998089,
+  "actual_lite_test_mse": 0.572248872168288,
+  "same_old_weights_lite_inference_test_mse": 0.1236385110402767,
+  "max_abs_prediction_difference_from_old": 2.384185793236071e-07,
+  "prediction_rmse_from_old": 5.234588908167851e-08,
+  "prediction_points": 3456,
+  "within_1e_5_tolerance": true
+}

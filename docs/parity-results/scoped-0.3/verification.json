@@ -1,0 +1,60 @@
+{
+  "version": "0.3.0",
+  "verified_at": "2026-11-02T08:55:05.575256+00:00",
+  "scope": [
+    "agent_workflow",
+    "context_management",
+    "llm_parameters_and_tool_protocol",
+    "model_dependencies",
+    "calendar_and_irregular_inputs"
+  ],
+  "deferred": [
+    "task_skills_and_cross_task_memory",
+    "critic_postprocessing",
+    "native_provider_adapters"
+  ],
+  "typescript": {
+    "passed": 29,
+    "failed": 0,
+    "command": "ADACAST_LITE_PYTHON=<reference-stack-interpreter> bun test --timeout 240000"
+  },
+  "python_with_torch": {
+    "passed": 19,
+    "failed": 0,
+    "command": "PYTHONPATH=python/src CUDA_VISIBLE_DEVICES='' <reference-stack-interpreter> -m unittest discover -s python/tests -v"
+  },
+  "python_core_environment": {
+    "passed": 16,
+    "skipped_optional_neural": 3,
+    "failed": 0
+  },
+  "reference_predictions": {
+    "recorded_original_fixtures": "passed",
+    "sampling_policy_fixture": "passed",
+    "new_calendar_transformer_training": "passed"
+  },
+  "checks": {
+    "typecheck": true,
+    "schemas": true,
+    "source_dependency_independence": true,
+    "frozen_uv_lock": true
+  },
+  "standalone_release": {
+    "installed_without_source": true,
+    "run": true,
+    "resume": true,
+    "export": true,
+    "portable_model_inference": true,
+    "mock_agent_window_protocol": true,
+    "model_registry": true
+  },
+  "artifacts": {
+    "wheel": "adacast_lite_ml-0.3.0-py3-none-any.whl",
+    "wheel_sha256": "62ebfc0120826e80640b9d2cba0a4a309339b5ae46db40c04c7cbe0025af883d"
+  },
+  "not_exercised": [
+    "live LLM autonomous-search quality",
+    "foundation model weights/GPU inference",
+    "all optional-model parameter combinations"
+  ]
+}

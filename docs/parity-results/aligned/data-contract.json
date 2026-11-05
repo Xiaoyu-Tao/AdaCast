@@ -1,0 +1,173 @@
+[
+  {
+    "case": "univariate",
+    "old_features": [
+      "OT"
+    ],
+    "new_features": [
+      "OT"
+    ],
+    "boundaries": {
+      "train": [
+        0,
+        10452
+      ],
+      "adjustment_fit": [
+        10452,
+        12194
+      ],
+      "val": [
+        12194,
+        13936
+      ],
+      "test": [
+        13936,
+        17420
+      ]
+    },
+    "splits": {
+      "train": {
+        "old_windows": 107,
+        "new_windows": 107,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      },
+      "adjustment_fit": {
+        "old_windows": 18,
+        "new_windows": 18,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      },
+      "val": {
+        "old_windows": 18,
+        "new_windows": 18,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      },
+      "test": {
+        "old_windows": 36,
+        "new_windows": 36,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      }
+    }
+  },
+  {
+    "case": "multivariate",
+    "old_features": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ],
+    "new_features": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ],
+    "boundaries": {
+      "train": [
+        0,
+        10452
+      ],
+      "adjustment_fit": [
+        10452,
+        12194
+      ],
+      "val": [
+        12194,
+        13936
+      ],
+      "test": [
+        13936,
+        17420
+      ]
+    },
+    "splits": {
+      "train": {
+        "old_windows": 107,
+        "new_windows": 107,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      },
+      "adjustment_fit": {
+        "old_windows": 18,
+        "new_windows": 18,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      },
+      "val": {
+        "old_windows": 18,
+        "new_windows": 18,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      },
+      "test": {
+        "old_windows": 36,
+        "new_windows": 36,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      }
+    }
+  },
+  {
+    "case": "gap7_stride24",
+    "old_features": [
+      "OT"
+    ],
+    "new_features": [
+      "OT"
+    ],
+    "boundaries": {
+      "train": [
+        0,
+        10452
+      ],
+      "adjustment_fit": [
+        10452,
+        12194
+      ],
+      "val": [
+        12194,
+        13936
+      ],
+      "test": [
+        13936,
+        17420
+      ]
+    },
+    "splits": {
+      "train": {
+        "old_windows": 428,
+        "new_windows": 428,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      },
+      "adjustment_fit": {
+        "old_windows": 69,
+        "new_windows": 69,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      },
+      "val": {
+        "old_windows": 69,
+        "new_windows": 69,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      },
+      "test": {
+        "old_windows": 141,
+        "new_windows": 141,
+        "origin_indices_equal": true,
+        "max_abs_normalized_target_difference": 0.0
+      }
+    }
+  }
+]

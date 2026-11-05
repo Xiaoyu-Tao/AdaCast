@@ -1,0 +1,35 @@
+{
+  "status": "succeeded",
+  "allowlisted_days": 60,
+  "prior_only_days": 219,
+  "full_test_original_scale": {
+    "prior": {
+      "mse": 771930.6759409896,
+      "rmse": 878.5958547255898,
+      "mae": 663.8679026382657,
+      "wape": 0.011692702734180242
+    },
+    "adacast_unrestricted": {
+      "mse": 997610.4017861777,
+      "rmse": 998.8044862665454,
+      "mae": 726.7915110418788,
+      "wape": 0.012800975999240195
+    },
+    "adacast_date_allowlist": {
+      "mse": 815705.3941561158,
+      "rmse": 903.1641014545008,
+      "mae": 672.5245176945679,
+      "wape": 0.011845171660807535
+    }
+  },
+  "mse_change_ratio_vs_prior": 0.05670809514308317,
+  "mae_change_ratio_vs_prior": 0.013039665002480216,
+  "daily_mse_comparison": {
+    "improved": 23,
+    "worse": 27,
+    "unchanged": 229,
+    "meaningful_change_tolerance_original": 0.01
+  },
+  "delivery": "/mnt/d/kawai10726/work/codes/project/AdaCast/adacast-lite/deliveries/yaguo-userprior-date-allowlist-20261104",
+  "checks_passed": 10
+}

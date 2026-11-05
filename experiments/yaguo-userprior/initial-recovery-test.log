@@ -1,0 +1,9 @@
+bun test v1.3.13 (bf2e2cec)
+
+tests/window-initial-recovery.test.ts:
+(pass) recovery performs the failed initial assessment before any prediction generation [163951.16ms]
+
+ 1 pass
+ 0 fail
+ 16 expect() calls
+Ran 1 test across 1 file. [165.52s]

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "task": {
+    "dataset_path": "/mnt/d/kawai10726/work/temp/cast/dataset/huabei_load_weather_selector_truth_scope.csv",
+    "time_col": "date",
+    "target_col": "OT",
+    "frequency": "15min",
+    "strict_frequency": true,
+    "seq_len": 711,
+    "label_len": 711,
+    "pred_len": 96,
+    "forecast_gap": 57,
+    "window_stride": 96,
+    "split_mode": "timestamp",
+    "train_end_timestamp": "2025-06-30 09:30:00",
+    "validation_end_timestamp": "2025-09-30 09:30:00",
+    "prediction_target_start_timestamp": "2025-07-01 00:00:00",
+    "eval_metrics": [
+      "mse",
+      "mae"
+    ],
+    "model_families": [
+      "UserPrior"
+    ],
+    "reflection_enabled": true,
+    "exogenous_columns": [
+      "秦皇岛市_t2m",
+      "秦皇岛市_q",
+      "秦皇岛市_ssrd",
+      "最高温",
+      "最低温",
+      "天气",
+      "风向风力",
+      "日照",
+      "最高温_数值",
+      "最低温_数值",
+      "前一日最高温",
+      "前一日最低温",
+      "前一日天气",
+      "最高温变化",
+      "最低温变化",
+      "最大温差绝对值",
+      "是否极端天气",
+      "是否重合",
+      "环保",
+      "政策",
+      "节假日"
+    ],
+    "exogenous_history_steps": 288,
+    "business_context": "Huabei grid load OT. Use only the exact user-submitted prior file named by prompt_yaguo.md. No model search, refitting or alternative priors. True load history has 711 steps; forecast gap 57, target 96, daily stride 96. Target-day observations and observed gap load must never enter blind reasoning. First validation labels Jul 1 2025 midnight; first test labels Oct 1 2025 midnight, through Jul 6 2026. Keep only complete windows in each frozen split.",
+    "csv_semantics": "Naive local 15-minute timestamps. OT is load in source units. Only 秦皇岛市_t2m/q/ssrd and 18 global event/context columns are exposed exogenous inputs. Past exogenous is restricted to the last 288 observed rows; all 57 gap and 96 horizon exogenous rows are future-known. The 711-step load history is unchanged. Original prior OT changes in gap rows as well: explicit midnight target grid must override automatic first-change inference. Do not infer units or meanings of undocumented categorical encodings.",
+    "region_info": "秦皇岛市 selected using training-only mean absolute Pearson correlation across t2m/q/ssrd. This is a proxy selection, not a causal city-weight estimate. Source background also identifies Beijing and Tangshan surroundings as influential.",
+    "seasonality_hints": "Daily, weekly and seasonal structure; weekday/weekend and holiday transitions. Temperature effects may be nonlinear. Compare same-weekday historical profiles, accounting for only partial observations on the issue day. The supplied prior may already encode these patterns; qualitative weather knowledge alone is not a numeric correction rule."
+  },
+  "llm": {
+    "provider": "openai-compatible",
+    "base_url": "https://xin.kabuai.cn/v1",
+    "api_key_env": "LLM-API-KEY",
+    "model": "deepseek-v4.1-flash",
+    "temperature": 0.7,
+    "context_window_tokens": 1000000,
+    "max_output_tokens": 32000,
+    "max_retries": 2,
+    "model_capabilities": {
+      "deepseek-v4.1-flash": {
+        "max_output_tokens": 65536
+      }
+    }
+  },
+  "execution": {
+    "mode": "agent",
+    "max_experiments": 1,
+    "max_steps_per_agent": 100,
+    "max_total_llm_calls": 5000,
+    "max_total_tokens": 192000000,
+    "task_timeout_seconds": 43200,
+    "tool_timeout_seconds": 21600,
+    "llm_timeout_seconds": 600,
+    "window_llm_concurrency": 8,
+    "max_subagent_depth": 0
+  },
+  "decisions": {
+    "prediction_prior": {
+      "mode": "csv",
+      "path": "/mnt/d/kawai10726/work/temp/cast/dataset/huabei_load_weather_selector_prediction_prior.csv"
+    },
+    "adjustment": {
+      "strategy": "agent"
+    }
+  },
+  "agents": {
+    "planner": {
+      "prompt": "Read the supplied frozen Huabei domain knowledge. Analyze only training targets and write a concise pre-forecast report that preserves its information boundary, selected-city rationale and the explicit midnight target grid. Do not search or train models. Save task-specific skills and freeze the standard window reflection policy. Use only exposed supported tools; no shell, delegated tasks or old adacast_ml commands."
+    },
+    "forecaster": {
+      "prompt": "The sole UserPrior is already imported from the exact prompt_yaguo.md path. Do not generate_model, search, train or substitute any forecast source. Keep the explicit midnight label grid and selected-city exogenous scope. Follow the normal full adjustment pipeline: decide strategy, freeze the UserPrior source, run fit replay and diagnostics on validation front, design a justified lightweight conditional candidate if supported, evaluate on validation back, accept and lock a passing candidate or explicitly record no effective skill. Qualitative knowledge alone does not justify numeric changes. Never inspect test residuals to tune. Then finish_search. Avoid unsupported legacy shell commands and subagents."
+    },
+    "critic": {
+      "prompt": "Run test_best, then run_window_reflection to completion for all 279 daily test tasks, and final_report. Preserve 711 history, 57 gap, 96 horizon and explicit midnight targets. Treat gap values as forecasts and never use future observed OT. Inspect real aggregate metrics through forecast_state; improvement is not guaranteed. Keep standardized and original-scale metrics distinct. Report only supported executed operations; omit legacy baseline, visualization and historical-search commands that are not exposed. Do not rerun or revise rules after viewing test errors.",
+      "tools": [
+        "forecast_state",
+        "test_best",
+        "run_window_reflection",
+        "final_report",
+        "read_tool_output"
+      ]
+    }
+  },
+  "memory": {
+    "enabled": false
+  },
+  "knowledge": {
+    "files": [
+      "../knowledge/yaguo-domain.md"
+    ]
+  }
+}

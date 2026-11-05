@@ -1,0 +1,2 @@
+$ bun scripts/check-independence.ts
+Independent source/dependency check passed

@@ -1,0 +1,98 @@
+{
+  "conclusion": "Not behaviorally equivalent. Measured raw predictions and metrics differ materially; live LLM end-to-end parity was not tested.",
+  "findings": [
+    {
+      "severity": "high",
+      "id": "DLINEAR_TRAINING_DRIFT",
+      "title": "DLinear initialization, defaults and batch RNG differ",
+      "old": "Seasonal/trend weights start at 1/seq_len; default learning_rate=0.0001; train_epochs/moving_avg names; torch DataLoader shuffle.",
+      "lite": "Random Linear weights; default learning_rate=0.001; epochs/kernel names; direct torch.randperm batching.",
+      "impact": "Same mapped explicit epochs/lr/seed still produces materially different validation/test predictions.",
+      "references": [
+        "python/src/adacast_ml/models/DLinear.py:43",
+        "python/src/adacast_ml/runner.py:1632",
+        "adacast-lite/python/src/adacast_lite_ml/models.py:39"
+      ]
+    },
+    {
+      "severity": "high",
+      "id": "NUMERIC_FEATURES_DROPPED",
+      "title": "Multivariate input becomes target-only input",
+      "old": "All completely numeric CSV columns are standardized and participate in neural model training.",
+      "lite": "Only target_col is loaded into Data.y; remaining numeric columns do not participate in training.",
+      "impact": "The full 7-feature ETTh1 task is numerically different. Lite univariate and multivariate cases produce the same target predictions.",
+      "references": [
+        "python/src/adacast_ml/data_loader.py:276",
+        "adacast-lite/python/src/adacast_lite_ml/data.py:62"
+      ]
+    },
+    {
+      "severity": "high",
+      "id": "STATISTICAL_FORECAST_REGIME",
+      "title": "Holt/ARIMA fit and forecasting regimes differ",
+      "old": "Optimized statsmodels Holt; ARIMA defaults (1,1,1), unconstrained stationarity/invertibility; forecasts from the training boundary, sliced into evaluation windows.",
+      "lite": "Holt fixed alpha/beta, recomputed from each recent history; ARIMA defaults (2,0,1), default constraints, apply each recent history before forecasting.",
+      "impact": "Both training objective and information used at each evaluation origin differ; lower new error would not establish a like-for-like improvement.",
+      "references": [
+        "python/src/adacast_ml/statistical.py:144",
+        "python/src/adacast_ml/statistical.py:174",
+        "python/src/adacast_ml/runner.py:1133",
+        "adacast-lite/python/src/adacast_lite_ml/models.py:66"
+      ]
+    },
+    {
+      "severity": "high",
+      "id": "MODEL_SELECTION_CHANGED",
+      "title": "Final delivery model selection rule differs",
+      "old": "Select a validation representative per family; test each representative and deliver the lowest raw test MSE model.",
+      "lite": "Lock the global lowest validation MSE model before testing and test only that model.",
+      "impact": "Identical experiment histories can deliver different models.",
+      "references": [
+        "packages/adacast/src/agent/prompt/critic.txt:45",
+        "packages/adacast/src/agent/prompt/critic.txt:81",
+        "adacast-lite/src/forecast.ts:193"
+      ]
+    },
+    {
+      "severity": "high",
+      "id": "FOUNDATION_MODEL_CHANGED",
+      "title": "Chronos default weights and inference aggregation differ",
+      "old": "amazon/chronos-bolt-base, BaseChronosPipeline, GPU bfloat16, sample/quantile mean.",
+      "lite": "amazon/chronos-t5-tiny, ChronosPipeline, CPU float32, sample median.",
+      "impact": "The same Chronos model name identifies a different base model. Not numerically tested here.",
+      "references": [
+        "python/src/adacast_ml/models/_foundation.py:7",
+        "python/src/adacast_ml/models/Chronos.py:16",
+        "adacast-lite/python/src/adacast_lite_ml/models.py:118"
+      ]
+    },
+    {
+      "severity": "high",
+      "id": "AGENT_AND_CRITIC_SIMPLIFIED",
+      "title": "Agent prompts, compaction, adjustment rules and evidence controller were simplified",
+      "old": "Detailed domain roles, LLM/artifact compaction, conditional/exogenous adjustment rules, richer context and calibrated safety/evidence transitions.",
+      "lite": "Short role prompts, extractive history notes, affine/horizon/clip rules, reduced window context and min/max/step constraints.",
+      "impact": "The same LLM and task configuration would receive different inputs and tools. End-to-end semantic parity is not established.",
+      "references": [
+        "packages/adacast/src/agent/prompt/forecaster.txt",
+        "packages/adacast/src/tool/forecast/forecast-adjustment-candidate.ts:353",
+        "adacast-lite/src/prompts.ts:6",
+        "adacast-lite/src/context.ts:53",
+        "adacast-lite/src/critic.ts:37"
+      ]
+    },
+    {
+      "severity": "low",
+      "id": "FLOAT_AND_DEGENERATE_METRICS",
+      "title": "Floating-point path and zero-denominator serialization differ",
+      "old": "CSV numeric values cast to float32 before StandardScaler; undefined WAPE/MASE return Infinity.",
+      "lite": "Python float64 values and statistics; undefined WAPE/MASE return null.",
+      "impact": "Measured target scale differences are around 2.14e-7 and do not explain large model error changes; degenerate metrics need an explicit compatibility decision.",
+      "references": [
+        "python/src/adacast_ml/data_loader.py:314",
+        "python/src/adacast_ml/utils/metrics.py:18",
+        "adacast-lite/python/src/adacast_lite_ml/data.py:112"
+      ]
+    }
+  ]
+}

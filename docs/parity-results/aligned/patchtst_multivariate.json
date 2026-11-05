@@ -1,0 +1,75 @@
+{
+  "case": "patchtst_multivariate",
+  "model": "PatchTST",
+  "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/dataset/ETTh1.csv",
+  "dataset_sha256": "aaf53becad03ad8a7e93cf96452244f423480df960d769e12d66d4a5c570ddb0",
+  "old_hyperparams": {
+    "train_epochs": 1,
+    "d_model": 16,
+    "n_heads": 2,
+    "e_layers": 1,
+    "d_ff": 32
+  },
+  "new_params": {
+    "train_epochs": 1,
+    "d_model": 16,
+    "n_heads": 2,
+    "e_layers": 1,
+    "d_ff": 32,
+    "device": "cpu",
+    "threads": 2
+  },
+  "splits": {
+    "val": {
+      "old_metrics": {
+        "mse": 0.09518131959492922,
+        "mae": 0.24048786851818915,
+        "wape": 0.15110696989677183,
+        "mase": 2.8476957416263184
+      },
+      "new_metrics": {
+        "mse": 0.09518131959492922,
+        "mae": 0.24048786851818915,
+        "wape": 0.15110696989677183,
+        "mase": 2.8476957416263184
+      },
+      "mse_change_percent": 0.0,
+      "old_points": 1728,
+      "new_points": 1728,
+      "aligned_points": 1728,
+      "max_abs_actual_difference": 0.0,
+      "prediction_mae_between_versions": 0.0,
+      "prediction_rmse_between_versions": 0.0,
+      "max_abs_prediction_difference": 0.0
+    },
+    "test": {
+      "old_metrics": {
+        "mse": 0.13016372470771725,
+        "mae": 0.28300560513835754,
+        "wape": 0.2512655233646379,
+        "mase": 3.3511622086164623
+      },
+      "new_metrics": {
+        "mse": 0.13016372470771725,
+        "mae": 0.28300560513835754,
+        "wape": 0.2512655233646379,
+        "mase": 3.3511622086164623
+      },
+      "mse_change_percent": 0.0,
+      "old_points": 3456,
+      "new_points": 3456,
+      "aligned_points": 3456,
+      "max_abs_actual_difference": 0.0,
+      "prediction_mae_between_versions": 0.0,
+      "prediction_rmse_between_versions": 0.0,
+      "max_abs_prediction_difference": 0.0
+    }
+  },
+  "timings_seconds": {
+    "old_val": 4.261133870983031,
+    "old_test": 4.524494838988176,
+    "new_val": 4.687233313015895,
+    "new_test": 4.676631373993587
+  },
+  "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/patchtst_multivariate"
+}

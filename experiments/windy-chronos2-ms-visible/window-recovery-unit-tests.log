@@ -1,0 +1,11 @@
+bun test v1.3.13 (bf2e2cec)
+
+tests/window-recovery.test.ts:
+(pass) transport failures reopen even after candidate exhaustion, while genuine semantic exhaustion remains terminal [9.46ms]
+(pass) accepted flags cannot make a provider-failed terminal correction reusable [9.05ms]
+
+ 2 pass
+ 1 filtered out
+ 0 fail
+ 8 expect() calls
+Ran 2 tests across 1 file. [458.00ms]

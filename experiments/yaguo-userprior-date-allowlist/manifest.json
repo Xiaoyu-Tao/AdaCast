@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "succeeded",
+  "mode": "user_date_allowlist_replay",
+  "parent_manifest_sha256": "bc697d91d3100b02ed0e9b3f9348f85633f07efdf276bef7169c1398d640cf42",
+  "final_prediction": "predictions/final.csv",
+  "test_tasks": 279,
+  "allowlisted_days": 60,
+  "prior_only_days": 219,
+  "additional_api_calls": 0,
+  "all_checks_passed": true,
+  "files": {
+    "apply-yaguo-date-allowlist.py": "5784644fa0bd4818d49fa64845f36ab5b4c679bf0096e71acbcde11eb599b75a",
+    "daily-test-metrics.csv": "8a40fcc3a8336090c88accec3cd52a91a13f8fb8469200be2d2d4c70024ce1d4",
+    "policy.json": "5acb32b1211a8d174cbded0cab9b789ce70efcf222cc30e16b9f56dd8af7ab1a",
+    "predictions/final.csv": "445e96e8f045cab8d7fb112e0b441ecb8a9f1add8a5a5c7a094f0c9ff899c995",
+    "report.md": "eed94384634a55ab6a90964fd76b12b59171cb274c9478250962ea3db5f94d00",
+    "summary.json": "8c3df9418805392f76e8356bfe46f6c55e0cb667a408525e98cd44bd03e6046d",
+    "test-comparison.png": "7ac895674c0fdc99be2542277eac4f104cd5c83e43b590cea7a84197cbd60b5e",
+    "test-comparison.svg": "679cec33dd27d503098ef6489ad21c6396c2999fe69297e45abb5c312f1cc3ba",
+    "test-correction-date-allowlist.json": "c23cc7787e631afb2d06019a325454ab442cf500641637000794b415a138b2da",
+    "test-predictions.csv": "33c72fab6f0aee17eeeb86eeb516524ccee39824c18e9ab14c72601caeefac4f"
+  }
+}

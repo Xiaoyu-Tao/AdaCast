@@ -1,0 +1,28 @@
+{
+  "normalization": "training-only min-max; same linear transform for truth and predictions",
+  "training_points": 23594,
+  "min": -2.0,
+  "max": 193.44,
+  "range": 195.44,
+  "range_squared": 38196.7936,
+  "full_test_tasks": 50,
+  "full_test_points": 4800,
+  "metrics": {
+    "chronos2": {
+      "mse_minmax": 0.07900763342817728,
+      "mae_minmax": 0.15945803951855786,
+      "rmse_minmax": 0.28108296538242455
+    },
+    "adjusted": {
+      "mse_minmax": 0.07911224930474071,
+      "mae_minmax": 0.15930683309454402,
+      "rmse_minmax": 0.2812689981223325
+    },
+    "adacast_final": {
+      "mse_minmax": 0.06120953167667296,
+      "mae_minmax": 0.15619594196174535,
+      "rmse_minmax": 0.2474056015466767
+    }
+  },
+  "mse_improvement_percent": 22.52706603050435
+}

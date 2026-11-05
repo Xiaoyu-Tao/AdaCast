@@ -1,0 +1,61 @@
+{
+  "case": "holt_defaults",
+  "model": "Holt",
+  "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+  "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+  "old_hyperparams": {},
+  "new_params": {},
+  "splits": {
+    "val": {
+      "old_metrics": {
+        "mse": 0.9670549283909582,
+        "mae": 0.9498340797229962,
+        "wape": 0.5968140953470807,
+        "mase": 11.247296924976283
+      },
+      "new_metrics": {
+        "mse": 1.4899729214331514,
+        "mae": 0.8456974126120801,
+        "wape": 0.5313813651624016,
+        "mase": 10.014180484818286
+      },
+      "mse_change_percent": 54.07324627487855,
+      "old_points": 1728,
+      "new_points": 1728,
+      "aligned_points": 1728,
+      "max_abs_actual_difference": 2.1336840472230278e-07,
+      "prediction_mae_between_versions": 1.5595540484668005,
+      "prediction_rmse_between_versions": 1.847653629806699,
+      "max_abs_prediction_difference": 5.487223755996775
+    },
+    "test": {
+      "old_metrics": {
+        "mse": 0.2795319241193742,
+        "mae": 0.44924477773788735,
+        "wape": 0.3988603834964871,
+        "mase": 5.319654785061575
+      },
+      "new_metrics": {
+        "mse": 6.493141175679325,
+        "mae": 1.9790855025575924,
+        "wape": 1.7571240221713562,
+        "mase": 23.435000653821245
+      },
+      "mse_change_percent": 2222.8621189279356,
+      "old_points": 3456,
+      "new_points": 3456,
+      "aligned_points": 3456,
+      "max_abs_actual_difference": 1.2097226131935201e-07,
+      "prediction_mae_between_versions": 2.002474416633004,
+      "prediction_rmse_between_versions": 2.5338264822323002,
+      "max_abs_prediction_difference": 7.859669397584288
+    }
+  },
+  "timings_seconds": {
+    "old_val": 3.0912307210091967,
+    "old_test": 3.1933288120198995,
+    "new_val": 0.2749478660116438,
+    "new_test": 0.3339625140069984
+  },
+  "artifact_directory": "/tmp/adacast-lite-parity-c0mx6sdz/holt_defaults"
+}

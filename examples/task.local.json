@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "task": {
+    "dataset_path": "./series.csv", "time_col": "date", "target_col": "target", "frequency": "h",
+    "seq_len": 24, "pred_len": 12, "forecast_gap": 0, "label_len": 0, "window_stride": 12,
+    "split_mode": "ratio", "train_ratio": 0.6, "val_ratio": 0.2, "test_ratio": 0.2,
+    "model_families": ["Naive", "SeasonalNaive", "Holt", "Linear"], "reflection_enabled": false
+  },
+  "execution": { "mode": "deterministic", "max_experiments": 6 },
+  "decisions": { "adjustment": { "strategy": "off" } },
+  "memory": { "enabled": false }
+}

@@ -1,6 +1,0 @@
-export const WORDMARK = {
-  left: ["█▀▀   █▀█   █▀▀   ▀█▀", "█     █▄█   ▀▀█    █ ", "▀▀▀   ▀ ▀   ▀▀▀    ▀ "],
-  right: ["█▀▀   █     █▀█   █   █", "█     █     █▄█   ▀▄▀▄▀", "▀▀▀   ▀▀▀   ▀ ▀    ▀ ▀ "],
-} as const
-
-export const MARK = ["█▀▀", "█  ", "▀▀▀"] as const

@@ -1,0 +1,9 @@
+bun test v1.3.13 (bf2e2cec)
+
+tests/alignment.test.ts:
+(pass) canonical adjustment freezes family sources, replays validation front, validates and locks a conditional skill [171265.93ms]
+
+ 1 pass
+ 0 fail
+ 14 expect() calls
+Ran 1 test across 1 file. [171.67s]

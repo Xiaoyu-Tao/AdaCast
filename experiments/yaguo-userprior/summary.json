@@ -1,0 +1,470 @@
+{
+  "protocol": {
+    "source_prompt": "dataset/prompt_yaguo.md",
+    "training_points": 157543,
+    "adjustment_fit_tasks": 45,
+    "heldout_validation_tasks": 45,
+    "test_tasks": 279,
+    "test_points": 26784,
+    "history_steps": 711,
+    "forecast_gap": 57,
+    "horizon_steps": 96,
+    "stride": 96,
+    "test_start": "2025-10-01 00:00:00",
+    "test_end": "2026-07-06 23:45:00",
+    "prediction_grid_anchor": {
+      "row": 157600,
+      "timestamp": "2025-07-01 00:00:00",
+      "source": "explicit experiment first validation target"
+    },
+    "excluded_validation_days": [
+      "2025-08-15",
+      "2025-09-30"
+    ],
+    "exclusion_reason": "Complete targets cannot cross the fit/holdout or validation/test origin boundary"
+  },
+  "provenance": {
+    "truth_path": "/mnt/d/kawai10726/work/temp/cast/dataset/huabei_load_weather_selector_truth_scope.csv",
+    "prior_path": "/mnt/d/kawai10726/work/temp/cast/dataset/huabei_load_weather_selector_prediction_prior.csv",
+    "truth_sha256": "5cd7ae88f1777fba9dbe190f405efcc620824c2f9e19961ff5e35695c57b50c6",
+    "prior_sha256": "608b4da2683a119917fe374d9f3228e9957601cb34ebcc65e90a23f47eb3c4c8"
+  },
+  "exogenous_scope": {
+    "city": "秦皇岛市",
+    "city_selection": {
+      "scope": "training_only",
+      "method": "mean absolute Pearson correlation of OT with city t2m, q, ssrd; descriptive proxy, not causal importance",
+      "ranking": [
+        {
+          "city": "秦皇岛市",
+          "correlations": {
+            "t2m": -0.11305812247344005,
+            "q": 0.038732874359989566,
+            "ssrd": 0.19758390959123348
+          },
+          "score": 0.11645830214155435
+        },
+        {
+          "city": "天津市",
+          "correlations": {
+            "t2m": -0.11303402065089195,
+            "q": 0.008534530210558802,
+            "ssrd": 0.2077150656146983
+          },
+          "score": 0.1097612054920497
+        },
+        {
+          "city": "唐山市",
+          "correlations": {
+            "t2m": -0.10512889449381443,
+            "q": 0.021036706089261007,
+            "ssrd": 0.20108212914371876
+          },
+          "score": 0.10908257657559806
+        },
+        {
+          "city": "保定市",
+          "correlations": {
+            "t2m": -0.10437479345766865,
+            "q": 0.007204260854745587,
+            "ssrd": 0.20958323074333507
+          },
+          "score": 0.1070540950185831
+        },
+        {
+          "city": "廊坊市",
+          "correlations": {
+            "t2m": -0.10479982125404674,
+            "q": 0.008716032580701237,
+            "ssrd": 0.20594638154050046
+          },
+          "score": 0.10648741179174948
+        },
+        {
+          "city": "赤峰市",
+          "correlations": {
+            "t2m": -0.10273675463369598,
+            "q": 0.019754132440500026,
+            "ssrd": 0.19360547738549155
+          },
+          "score": 0.10536545481989586
+        },
+        {
+          "city": "北京市",
+          "correlations": {
+            "t2m": -0.08840308149641074,
+            "q": 0.018155680104247007,
+            "ssrd": 0.20344396096966033
+          },
+          "score": 0.10333424085677269
+        },
+        {
+          "city": "承德市",
+          "correlations": {
+            "t2m": -0.08968706372229313,
+            "q": 0.008614970364182494,
+            "ssrd": 0.1969181709386147
+          },
+          "score": 0.09840673500836343
+        },
+        {
+          "city": "张家口市",
+          "correlations": {
+            "t2m": -0.08670843182577077,
+            "q": 0.000383720818067667,
+            "ssrd": 0.20404134045033234
+          },
+          "score": 0.09704449769805694
+        }
+      ]
+    },
+    "columns": [
+      "秦皇岛市_t2m",
+      "秦皇岛市_q",
+      "秦皇岛市_ssrd",
+      "最高温",
+      "最低温",
+      "天气",
+      "风向风力",
+      "日照",
+      "最高温_数值",
+      "最低温_数值",
+      "前一日最高温",
+      "前一日最低温",
+      "前一日天气",
+      "最高温变化",
+      "最低温变化",
+      "最大温差绝对值",
+      "是否极端天气",
+      "是否重合",
+      "环保",
+      "政策",
+      "节假日"
+    ],
+    "history_steps": 288,
+    "future_steps": 153,
+    "checked_blind_contexts": 279
+  },
+  "full_test_original_scale": {
+    "prior": {
+      "mse": 771930.6759409896,
+      "rmse": 878.5958547255898,
+      "mae": 663.8679026382657,
+      "wape": 0.011692702734180242
+    },
+    "adjusted": {
+      "mse": 773206.4421150513,
+      "rmse": 879.3215806035079,
+      "mae": 665.1263888315754,
+      "wape": 0.011714868446507891
+    },
+    "adacast_final": {
+      "mse": 997610.4017861777,
+      "rmse": 998.8044862665454,
+      "mae": 726.7915110418788,
+      "wape": 0.012800975999240195
+    }
+  },
+  "full_test_standardized_scale": {
+    "prior": {
+      "mse": 0.011707434499724669,
+      "mae": 0.08175670698984072,
+      "wape": 0.0815291371906296,
+      "mase": 1.6040234876094583
+    },
+    "adacast_final": {
+      "mae": 0.0895058810440801,
+      "mase": 1.7560581721183082,
+      "mse": 0.01513019105105723,
+      "wape": 0.08925674141838617
+    },
+    "adjusted": {
+      "mse": 0.01172678331258896,
+      "mae": 0.08191169222811137,
+      "wape": 0.08168369102747945,
+      "mase": 1.6070642162734659
+    }
+  },
+  "validation": {
+    "prior_holdout_metrics": {
+      "mse": 0.025620696540284996,
+      "mae": 0.1143895364166484,
+      "wape": 0.13304966837246093,
+      "mase": 2.2442623963788266
+    },
+    "candidate_evaluations": [
+      {
+        "candidate_id": "huabei-evening-core-v1",
+        "raw_metrics": {
+          "mse": 0.025620696540284996,
+          "mae": 0.1143895364166484,
+          "wape": 0.13304966837246093,
+          "mase": 2.2442623963788266
+        },
+        "adjusted_metrics": {
+          "mse": 0.025785452823138624,
+          "mae": 0.11470200954901484,
+          "wape": 0.13341311461010655,
+          "mase": 2.2503929544946883
+        },
+        "acceptance_decision": {
+          "accepted": true,
+          "reason": "accepted",
+          "checks": {
+            "changed_rows": 540,
+            "coverage_ratio": 0.125,
+            "force_accept_expert_prior": false,
+            "mae_regression_ratio": 0.002731658350535697,
+            "matched_rows": 540,
+            "max_mae_regression_ratio": 0.005,
+            "max_wape_regression_ratio": 0.005,
+            "min_relative_mse_gain": -1,
+            "mse_equality_tolerance": 1.1102230246251565e-16,
+            "raw_minus_adjusted_mse": -0.00016475628285362795,
+            "relative_mse_gain": -0.006430593430376552,
+            "triggered_rule_count": 1,
+            "wape_regression_ratio": 0.0027316583505355226,
+            "zero_trigger": false
+          }
+        }
+      },
+      {
+        "candidate_id": "huabei-evening-shape-v1",
+        "raw_metrics": {
+          "mse": 0.025620696540284996,
+          "mae": 0.1143895364166484,
+          "wape": 0.13304966837246093,
+          "mase": 2.2442623963788266
+        },
+        "adjusted_metrics": {
+          "mse": 0.025834374086512,
+          "mae": 0.1146781593898375,
+          "wape": 0.13338537382306798,
+          "mase": 2.2499250269458395
+        },
+        "acceptance_decision": {
+          "accepted": true,
+          "reason": "accepted",
+          "checks": {
+            "changed_rows": 1080,
+            "coverage_ratio": 0.25,
+            "force_accept_expert_prior": false,
+            "mae_regression_ratio": 0.002523158867764189,
+            "matched_rows": 1080,
+            "max_mae_regression_ratio": 0.005,
+            "max_wape_regression_ratio": 0.005,
+            "min_relative_mse_gain": -1,
+            "mse_equality_tolerance": 1.1102230246251565e-16,
+            "raw_minus_adjusted_mse": -0.00021367754622700352,
+            "relative_mse_gain": -0.008340036575158102,
+            "triggered_rule_count": 2,
+            "wape_regression_ratio": 0.002523158867764069,
+            "zero_trigger": false
+          }
+        }
+      },
+      {
+        "candidate_id": "huabei-late-night-v1",
+        "raw_metrics": {
+          "mse": 0.025620696540284996,
+          "mae": 0.1143895364166484,
+          "wape": 0.13304966837246093,
+          "mase": 2.2442623963788266
+        },
+        "adjusted_metrics": {
+          "mse": 0.025635954997437992,
+          "mae": 0.11445153072313077,
+          "wape": 0.13312177568381864,
+          "mase": 2.2454786919875547
+        },
+        "acceptance_decision": {
+          "accepted": true,
+          "reason": "accepted",
+          "checks": {
+            "changed_rows": 180,
+            "coverage_ratio": 0.041666666666666664,
+            "force_accept_expert_prior": false,
+            "mae_regression_ratio": 0.0005419578435615916,
+            "matched_rows": 180,
+            "max_mae_regression_ratio": 0.005,
+            "max_wape_regression_ratio": 0.005,
+            "min_relative_mse_gain": -1,
+            "mse_equality_tolerance": 1.1102230246251565e-16,
+            "raw_minus_adjusted_mse": -1.5258457152996646e-05,
+            "relative_mse_gain": -0.00059555200339713,
+            "triggered_rule_count": 1,
+            "wape_regression_ratio": 0.0005419578435614525,
+            "zero_trigger": false
+          }
+        }
+      }
+    ],
+    "reflection_records": [
+      {
+        "validation_run_id": "1808cae7022cab12cbc5e1a081dc1313720d40c9f1bd48a9b331269bc12e927f",
+        "baseline_kind": "skill_adjusted",
+        "adjustment_candidate_id": "huabei-late-night-v1",
+        "status": "enabled_no_trigger",
+        "trigger_count": 0,
+        "corrected_count": 0,
+        "fallback_count": 0,
+        "baseline_metrics": {
+          "mse": 0.025620696540284996,
+          "mae": 0.1143895364166484,
+          "wape": 0.13304966837246093,
+          "mase": 2.24426236450712
+        },
+        "final_metrics": {
+          "mse": 0.025620696540284996,
+          "mae": 0.1143895364166484,
+          "wape": 0.13304966837246093,
+          "mase": 2.24426236450712
+        },
+        "delta_mse": 0,
+        "result_path": ".forecast/reflection/validation/1808cae7022cab12cbc5e1a081dc1313720d40c9f1bd48a9b331269bc12e927f/huabei-late-night-v1/reflection_eval.json",
+        "completed_at": "2026-11-03T18:23:45.962Z"
+      },
+      {
+        "validation_run_id": "1808cae7022cab12cbc5e1a081dc1313720d40c9f1bd48a9b331269bc12e927f",
+        "baseline_kind": "raw_anchor",
+        "adjustment_candidate_id": null,
+        "status": "enabled_no_trigger",
+        "trigger_count": 0,
+        "corrected_count": 0,
+        "fallback_count": 0,
+        "baseline_metrics": {
+          "mse": 0.025620696540284996,
+          "mae": 0.1143895364166484,
+          "wape": 0.13304966837246093,
+          "mase": 2.24426236450712
+        },
+        "final_metrics": {
+          "mse": 0.025620696540284996,
+          "mae": 0.1143895364166484,
+          "wape": 0.13304966837246093,
+          "mase": 2.24426236450712
+        },
+        "delta_mse": 0,
+        "result_path": ".forecast/reflection/validation/1808cae7022cab12cbc5e1a081dc1313720d40c9f1bd48a9b331269bc12e927f/raw/reflection_eval.json",
+        "completed_at": "2026-11-03T18:25:22.210Z"
+      }
+    ]
+  },
+  "mse_improvement_ratio": -0.29235750421510676,
+  "mae_improvement_ratio": -0.09478332685395618,
+  "daily_mse_comparison": {
+    "improved": 91,
+    "worse": 117,
+    "unchanged": 71,
+    "precision_rule": "Days with every prediction within 0.01 source units of the prior count as unchanged; primary aggregate metrics retain full precision"
+  },
+  "daily_mse_comparison_raw_numeric": {
+    "improved": 126,
+    "worse": 153,
+    "unchanged": 0
+  },
+  "gain_concentration": {
+    "largest_gain_day": "2026-03-01",
+    "largest_day_share_of_net_reduction": -0.04700074521799176,
+    "excluding_largest_gain_day": {
+      "tasks": 278,
+      "prior_mse": 761688.2532517058,
+      "final_mse": 998825.0470581831,
+      "mse_improvement_ratio": -0.3113305119176015
+    },
+    "scope": "Post-hoc sensitivity only; all 279 days remain in the primary test"
+  },
+  "regression_concentration": {
+    "largest_loss_day": "2026-06-27",
+    "day_prior_mse": 911391.6161936881,
+    "day_final_mse": 12094836.718657294,
+    "largest_day_share_of_net_increase": 0.17761468149254334,
+    "excluding_largest_loss_day": {
+      "tasks": 278,
+      "prior_mse": 771429.0178825266,
+      "final_mse": 957692.321509663,
+      "mse_improvement_ratio": -0.24145229089048947
+    },
+    "scope": "Post-hoc sensitivity only; both predictions omit the same day and all 279 days remain in the primary test"
+  },
+  "prior_replay_max_abs_original_difference": 0.005364967495552264,
+  "stage_actual_original_max_abs_roundoff": {
+    "prior": 0.0,
+    "adacast_final": 0.0,
+    "adjusted": 0.0053896612516837195
+  },
+  "actual_precision_check": "Raw labels match source within 1e-6 source units. Every stage matches training-normalized source labels; inverse-transformed float32 labels allow 0.01 source units of roundoff.",
+  "window_reflection": {
+    "numeric_anchor": "raw_submitted_prior",
+    "locked_skill_usage": "reference_only",
+    "record": {
+      "test_run_id": "test_1808cae7022cab12cbc5e1a081dc1313720d40c9f1bd48a9b331269bc12e927f",
+      "validation_run_id": "1808cae7022cab12cbc5e1a081dc1313720d40c9f1bd48a9b331269bc12e927f",
+      "baseline_kind": "skill_adjusted",
+      "adjustment_candidate_id": "huabei-late-night-v1",
+      "validation_status": "enabled_no_trigger",
+      "llm_refinement_enabled": true,
+      "trigger_count": 1,
+      "skill_match_count": 279,
+      "llm_required_count": 279,
+      "corrected_count": 279,
+      "fallback_count": 0,
+      "deterministic_fallback_count": 0,
+      "raw_fallback_count": 0,
+      "baseline_metrics": {
+        "mse": 0.011707434499724669,
+        "mae": 0.08175670698984072,
+        "wape": 0.0815291371906296,
+        "mase": 1.6040234648300518
+      },
+      "final_metrics": {
+        "mse": 0.01513019105105723,
+        "mae": 0.0895058810440801,
+        "wape": 0.08925674141838617,
+        "mase": 1.7560581721183082
+      },
+      "result_path": ".forecast/reflection/test/test_1808cae7022cab12cbc5e1a081dc1313720d40c9f1bd48a9b331269bc12e927f/huabei-late-night-v1/reflection_eval.json",
+      "completed_at": "2026-11-03T23:04:11.991Z"
+    },
+    "terminal_records": 279,
+    "termination_reasons": {
+      "evidence_sufficient": 279
+    },
+    "unresolved_request_failures": 0
+  },
+  "llm_usage_by_status": [
+    {
+      "status": "failed",
+      "calls": 43,
+      "provider_reported_tokens": 0,
+      "reserved_tokens_for_unknown_usage": 3158577
+    },
+    {
+      "status": "received",
+      "calls": 1407,
+      "provider_reported_tokens": 111073863,
+      "reserved_tokens_for_unknown_usage": 0
+    }
+  ],
+  "usage_accounting": "Returned usage is provider-reported; unreturned usage reservations are estimates, not actual billing",
+  "kpie": {
+    "computed": false,
+    "reason": "Business formula was not provided; MSE and MAE are the requested primary metrics"
+  },
+  "checks": {
+    "exact_source_prior_only": true,
+    "frozen_dataset_hash": true,
+    "exact_daily_target_grid": true,
+    "complete_test_points": true,
+    "raw_prior_reused_with_float32_tolerance": true,
+    "immutable_initial_states_match_raw_prior": true,
+    "gap_forecasts_match_supplied_prior": true,
+    "actuals_match_source": true,
+    "stage_coordinates_match": true,
+    "final_scale_consistent": true,
+    "official_metrics_match_independent_recomputation": true,
+    "exogenous_scope_checked": true,
+    "initial_assessment_precedes_generation": true,
+    "no_request_failure_terminal": true
+  }
+}

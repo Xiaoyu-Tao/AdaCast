@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "task": {
+    "dataset_path": "../dataset/windy.csv",
+    "time_col": "date",
+    "target_col": "real_power",
+    "frequency": "15min",
+    "strict_frequency": true,
+    "seq_len": 96,
+    "label_len": 48,
+    "pred_len": 96,
+    "forecast_gap": 0,
+    "window_stride": 96,
+    "split_mode": "timestamp",
+    "train_end_timestamp": "2024-09-02 18:15:00",
+    "validation_start_timestamp": "2024-09-03 00:00:00",
+    "validation_end_timestamp": "2024-11-11 23:45:00",
+    "eval_metrics": ["mse", "mae", "wape", "mase"],
+    "model_families": ["Chronos2"],
+    "reflection_enabled": true,
+    "business_context": "Wind power prediction with supplied Chronos-2 zero-shot MS forecasts as the sole UserPrior. Only real_power is predicted. Prediction-day weather covariates are explicitly visible; prediction-day real_power must never be used by forecasting or blind LLM correction. Each daily task consumes the previous calendar day's 96 observations and predicts the next calendar day's 96 points. Training has exactly 23594 points ending 2024-09-02 18:15. The following 22 points are history only. Validation labels cover Sep 3-Nov 11 (70 days); its first 35 days are adjustment/calibration evidence and last 35 days are held-out validation. Test labels cover Nov 12-Dec 31 (50 days).",
+    "csv_semantics": "date is a naive local calendar timestamp at 15-minute frequency; real_power is the target in the source CSV's power units (physical unit not independently supplied). All 54 complete numeric non-target weather columns are declared known-future covariates for this experiment. Ignore the entirely empty unnamed column. This is a visible-weather conditional experiment; data availability before the forecast origin is assumed by the user's protocol, not independently verified."
+  },
+  "llm": {
+    "provider": "openai-compatible",
+    "base_url": "https://xin.kabuai.cn/v1",
+    "api_key_env": "LLM-API-KEY",
+    "model": "deepseek-v4.1-flash",
+    "temperature": 0.7,
+    "context_window_tokens": 1000000,
+    "max_output_tokens": 32000,
+    "max_retries": 2,
+    "model_capabilities": {
+      "deepseek-v4.1-flash": {"max_output_tokens": 65536}
+    }
+  },
+  "execution": {
+    "mode": "agent",
+    "max_experiments": 1,
+    "max_steps_per_agent": 100,
+    "max_total_llm_calls": 1200,
+    "max_total_tokens": 64000000,
+    "task_timeout_seconds": 21600,
+    "tool_timeout_seconds": 1800,
+    "llm_timeout_seconds": 600,
+    "window_llm_concurrency": 8
+  },
+  "decisions": {
+    "prediction_prior": {"mode": "csv", "path": "../experiments/windy-chronos2-ms-visible/prior.csv"},
+    "adjustment": {"strategy": "agent"}
+  },
+  "agents": {
+    "planner": {"prompt": "Use the supplied Chronos-2 UserPrior; model training and model search are unnecessary. Preserve the exact daily calendar windows. Configure the normal evidence-loop window reflection policy. Limit quantitative target analysis to the declared training segment."},
+    "forecaster": {"prompt": "The Chronos-2 prior is already imported as UserPrior. Do not invoke generate_model or retrain. Inspect validation-front residual diagnostics and attempt a meaningful evidence-supported lightweight conditional adjustment candidate if diagnostics support one. Evaluate only on held-out validation and lock a passing skill or explicitly record no effective skill. Do not tune from test data or fabricate domain thresholds. Complete finish_search."},
+    "critic": {"prompt": "Run the full 50-task test collection and the configured window-reflection controller. Compare raw Chronos-2 UserPrior and final outputs on exactly the same 4800 points. Explain whether validation permitted refinement and whether final test metrics improved; improvement is not guaranteed. Keep standardized metrics distinct from original power-unit metrics."}
+  },
+  "memory": {"enabled": false}
+}

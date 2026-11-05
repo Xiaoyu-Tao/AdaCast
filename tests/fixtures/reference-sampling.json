@@ -1,0 +1,39 @@
+{
+  "qwen3": {
+    "temperature": 0.55,
+    "topP": 1
+  },
+  "claude-sonnet": {},
+  "gemini-2.5-pro": {
+    "temperature": 1,
+    "topP": 0.95,
+    "topK": 64
+  },
+  "glm-4.6": {
+    "temperature": 1
+  },
+  "glm-4.7": {
+    "temperature": 1
+  },
+  "minimax-m2": {
+    "temperature": 1,
+    "topP": 0.95,
+    "topK": 20
+  },
+  "minimax-m2.5": {
+    "temperature": 1,
+    "topP": 0.95,
+    "topK": 40
+  },
+  "kimi-k2": {
+    "temperature": 0.6
+  },
+  "kimi-k2-thinking": {
+    "temperature": 1
+  },
+  "kimi-k2.5": {
+    "temperature": 1,
+    "topP": 0.95
+  },
+  "gpt-4.1": {}
+}

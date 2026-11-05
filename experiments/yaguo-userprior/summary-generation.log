@@ -1,0 +1,24 @@
+{
+  "original_scale_metrics": {
+    "prior": {
+      "mse": 771930.6759409896,
+      "rmse": 878.5958547255898,
+      "mae": 663.8679026382657,
+      "wape": 0.011692702734180242
+    },
+    "adjusted": {
+      "mse": 773206.4421150513,
+      "rmse": 879.3215806035079,
+      "mae": 665.1263888315754,
+      "wape": 0.011714868446507891
+    },
+    "adacast_final": {
+      "mse": 997610.4017861777,
+      "rmse": 998.8044862665454,
+      "mae": 726.7915110418788,
+      "wape": 0.012800975999240195
+    }
+  },
+  "mse_improvement_ratio": -0.29235750421510676,
+  "summary": "/mnt/d/kawai10726/work/codes/project/AdaCast/adacast-lite/experiments/yaguo-userprior/summary.json"
+}

@@ -1,0 +1,311 @@
+{
+  "status": "succeeded",
+  "mode": "user_date_allowlist_replay",
+  "additional_api_calls": 0,
+  "protocol": {
+    "source_prompt": "dataset/prompt_yaguo.md",
+    "training_points": 157543,
+    "adjustment_fit_tasks": 45,
+    "heldout_validation_tasks": 45,
+    "test_tasks": 279,
+    "test_points": 26784,
+    "history_steps": 711,
+    "forecast_gap": 57,
+    "horizon_steps": 96,
+    "stride": 96,
+    "test_start": "2025-10-01 00:00:00",
+    "test_end": "2026-07-06 23:45:00",
+    "prediction_grid_anchor": {
+      "row": 157600,
+      "timestamp": "2025-07-01 00:00:00",
+      "source": "explicit experiment first validation target"
+    },
+    "excluded_validation_days": [
+      "2025-08-15",
+      "2025-09-30"
+    ],
+    "exclusion_reason": "Complete targets cannot cross the fit/holdout or validation/test origin boundary",
+    "allowlisted_test_days": 60,
+    "allowlisted_points": 5760,
+    "prior_only_days": 219,
+    "prior_only_points": 21024,
+    "date_matching": "prediction-label local calendar date"
+  },
+  "TEST_CORRECTION_DATE_ALLOWLIST": [
+    "2026-01-01",
+    "2026-01-04",
+    "2026-01-12",
+    "2026-01-15",
+    "2026-01-18",
+    "2026-01-19",
+    "2026-01-20",
+    "2026-02-01",
+    "2026-02-13",
+    "2026-02-14",
+    "2026-02-15",
+    "2026-02-16",
+    "2026-02-17",
+    "2026-02-18",
+    "2026-02-19",
+    "2026-02-20",
+    "2026-02-21",
+    "2026-02-22",
+    "2026-02-23",
+    "2026-02-24",
+    "2026-02-25",
+    "2026-02-26",
+    "2026-02-27",
+    "2026-02-28",
+    "2026-03-01",
+    "2026-03-02",
+    "2026-03-03",
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-13",
+    "2026-03-14",
+    "2026-03-15",
+    "2026-03-16",
+    "2026-03-17",
+    "2026-03-18",
+    "2026-04-16",
+    "2026-04-19",
+    "2026-05-01",
+    "2026-05-02",
+    "2026-05-03",
+    "2026-05-04",
+    "2026-05-05",
+    "2026-05-17",
+    "2026-05-20",
+    "2026-05-22",
+    "2026-06-03",
+    "2026-06-06",
+    "2026-06-07",
+    "2026-06-16",
+    "2026-06-19",
+    "2026-06-20",
+    "2026-06-21",
+    "2026-06-29",
+    "2026-06-30",
+    "2026-07-01",
+    "2026-07-02",
+    "2026-07-03",
+    "2026-07-05",
+    "2026-07-06"
+  ],
+  "provenance": {
+    "truth_path": "/mnt/d/kawai10726/work/temp/cast/dataset/huabei_load_weather_selector_truth_scope.csv",
+    "prior_path": "/mnt/d/kawai10726/work/temp/cast/dataset/huabei_load_weather_selector_prediction_prior.csv",
+    "truth_sha256": "5cd7ae88f1777fba9dbe190f405efcc620824c2f9e19961ff5e35695c57b50c6",
+    "prior_sha256": "608b4da2683a119917fe374d9f3228e9957601cb34ebcc65e90a23f47eb3c4c8",
+    "parent_delivery": "/mnt/d/kawai10726/work/codes/project/AdaCast/adacast-lite/deliveries/yaguo-userprior-20261104",
+    "parent_manifest_sha256": "bc697d91d3100b02ed0e9b3f9348f85633f07efdf276bef7169c1398d640cf42",
+    "parent_prediction_csv_sha256": "a847ba9a7946bf27d38c975e92989f985f49566ad45a670f653adaa5a7fd62e8"
+  },
+  "exogenous_scope": {
+    "city": "秦皇岛市",
+    "city_selection": {
+      "scope": "training_only",
+      "method": "mean absolute Pearson correlation of OT with city t2m, q, ssrd; descriptive proxy, not causal importance",
+      "ranking": [
+        {
+          "city": "秦皇岛市",
+          "correlations": {
+            "t2m": -0.11305812247344005,
+            "q": 0.038732874359989566,
+            "ssrd": 0.19758390959123348
+          },
+          "score": 0.11645830214155435
+        },
+        {
+          "city": "天津市",
+          "correlations": {
+            "t2m": -0.11303402065089195,
+            "q": 0.008534530210558802,
+            "ssrd": 0.2077150656146983
+          },
+          "score": 0.1097612054920497
+        },
+        {
+          "city": "唐山市",
+          "correlations": {
+            "t2m": -0.10512889449381443,
+            "q": 0.021036706089261007,
+            "ssrd": 0.20108212914371876
+          },
+          "score": 0.10908257657559806
+        },
+        {
+          "city": "保定市",
+          "correlations": {
+            "t2m": -0.10437479345766865,
+            "q": 0.007204260854745587,
+            "ssrd": 0.20958323074333507
+          },
+          "score": 0.1070540950185831
+        },
+        {
+          "city": "廊坊市",
+          "correlations": {
+            "t2m": -0.10479982125404674,
+            "q": 0.008716032580701237,
+            "ssrd": 0.20594638154050046
+          },
+          "score": 0.10648741179174948
+        },
+        {
+          "city": "赤峰市",
+          "correlations": {
+            "t2m": -0.10273675463369598,
+            "q": 0.019754132440500026,
+            "ssrd": 0.19360547738549155
+          },
+          "score": 0.10536545481989586
+        },
+        {
+          "city": "北京市",
+          "correlations": {
+            "t2m": -0.08840308149641074,
+            "q": 0.018155680104247007,
+            "ssrd": 0.20344396096966033
+          },
+          "score": 0.10333424085677269
+        },
+        {
+          "city": "承德市",
+          "correlations": {
+            "t2m": -0.08968706372229313,
+            "q": 0.008614970364182494,
+            "ssrd": 0.1969181709386147
+          },
+          "score": 0.09840673500836343
+        },
+        {
+          "city": "张家口市",
+          "correlations": {
+            "t2m": -0.08670843182577077,
+            "q": 0.000383720818067667,
+            "ssrd": 0.20404134045033234
+          },
+          "score": 0.09704449769805694
+        }
+      ]
+    },
+    "columns": [
+      "秦皇岛市_t2m",
+      "秦皇岛市_q",
+      "秦皇岛市_ssrd",
+      "最高温",
+      "最低温",
+      "天气",
+      "风向风力",
+      "日照",
+      "最高温_数值",
+      "最低温_数值",
+      "前一日最高温",
+      "前一日最低温",
+      "前一日天气",
+      "最高温变化",
+      "最低温变化",
+      "最大温差绝对值",
+      "是否极端天气",
+      "是否重合",
+      "环保",
+      "政策",
+      "节假日"
+    ],
+    "history_steps": 288,
+    "future_steps": 153,
+    "checked_blind_contexts": 279
+  },
+  "full_test_original_scale": {
+    "prior": {
+      "mse": 771930.6759409896,
+      "rmse": 878.5958547255898,
+      "mae": 663.8679026382657,
+      "wape": 0.011692702734180242
+    },
+    "adacast_unrestricted": {
+      "mse": 997610.4017861777,
+      "rmse": 998.8044862665454,
+      "mae": 726.7915110418788,
+      "wape": 0.012800975999240195
+    },
+    "adacast_date_allowlist": {
+      "mse": 815705.3941561158,
+      "rmse": 903.1641014545008,
+      "mae": 672.5245176945679,
+      "wape": 0.011845171660807535
+    }
+  },
+  "full_test_standardized_scale": {
+    "prior": {
+      "mse": 0.011707435444663369,
+      "mae": 0.08175671016215162
+    },
+    "adacast_unrestricted": {
+      "mse": 0.015130192052024628,
+      "mae": 0.089505883143955
+    },
+    "adacast_date_allowlist": {
+      "mse": 0.012371341807740844,
+      "mae": 0.08282279027437095
+    }
+  },
+  "scope_metrics_original_scale": {
+    "allowlisted_days": {
+      "days": 60,
+      "points": 5760,
+      "prior": {
+        "mse": 1425157.931299132,
+        "rmse": 1193.7997869404785,
+        "mae": 912.1862803634201,
+        "wape": 0.016385549602410558
+      },
+      "adacast_date_allowlist": {
+        "mse": 1628710.3709994694,
+        "rmse": 1276.2093758468748,
+        "mae": 952.4395403752252,
+        "wape": 0.01710861659298115
+      }
+    },
+    "other_days": {
+      "days": 219,
+      "points": 21024,
+      "prior": {
+        "mse": 592964.3046099916,
+        "rmse": 770.0417551081185,
+        "mae": 595.8354703847989,
+        "wape": 0.010438731909462472
+      },
+      "adacast_date_allowlist": {
+        "mse": 592964.3046099916,
+        "rmse": 770.0417551081185,
+        "mae": 595.8354703847989,
+        "wape": 0.010438731909462472
+      }
+    }
+  },
+  "mse_change_ratio_vs_prior": 0.05670809514308317,
+  "mae_change_ratio_vs_prior": 0.013039665002480216,
+  "daily_mse_comparison": {
+    "improved": 23,
+    "worse": 27,
+    "unchanged": 229,
+    "meaningful_change_tolerance_original": 0.01
+  },
+  "allowlisted_changed_days": 50,
+  "prior_semantics": "Same prior output as the previous verified run; its original source file and normalization-roundoff provenance are unchanged.",
+  "checks": {
+    "source_artifact_hashes_verified": true,
+    "unique_valid_allowlist_dates": true,
+    "all_allowlist_dates_in_test": true,
+    "all_279_days_retained": true,
+    "all_days_have_96_points": true,
+    "allowed_dates_match_previous_adacast": true,
+    "other_dates_equal_prior_exactly": true,
+    "window_coordinates_unchanged": true,
+    "actuals_unchanged": true,
+    "csv_roundtrip_preserves_policy": true
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "case": "dlinear_univariate_defaults",
+  "model": "DLinear",
+  "dataset": "/mnt/d/kawai10726/work/codes/project/AdaCast/experiments/etth1-evidence-loop/data/series.csv",
+  "dataset_sha256": "4a74e4cbe6e5d938c52ef246a4d1f2eb2a2ea2e4f0e30537e76dd6625ae0a72e",
+  "old_hyperparams": {},
+  "new_params": {},
+  "splits": {
+    "val": {
+      "old_metrics": {
+        "mse": 0.10709625272888468,
+        "mae": 0.24673497542324993,
+        "wape": 0.15503224646419891,
+        "mase": 2.9216697838124857
+      },
+      "new_metrics": {
+        "mse": 0.10709625272888468,
+        "mae": 0.24673497542324993,
+        "wape": 0.15503224646419891,
+        "mase": 2.9216697838124857
+      },
+      "mse_change_percent": 0.0,
+      "old_points": 1728,
+      "new_points": 1728,
+      "aligned_points": 1728,
+      "max_abs_actual_difference": 0.0,
+      "prediction_mae_between_versions": 0.0,
+      "prediction_rmse_between_versions": 0.0,
+      "max_abs_prediction_difference": 0.0
+    },
+    "test": {
+      "old_metrics": {
+        "mse": 0.12102072868158949,
+        "mae": 0.2769724344934393,
+        "wape": 0.24590899419306042,
+        "mase": 3.27972145586706
+      },
+      "new_metrics": {
+        "mse": 0.12102072868158949,
+        "mae": 0.2769724344934393,
+        "wape": 0.24590899419306042,
+        "mase": 3.27972145586706
+      },
+      "mse_change_percent": 0.0,
+      "old_points": 3456,
+      "new_points": 3456,
+      "aligned_points": 3456,
+      "max_abs_actual_difference": 0.0,
+      "prediction_mae_between_versions": 0.0,
+      "prediction_rmse_between_versions": 0.0,
+      "max_abs_prediction_difference": 0.0
+    }
+  },
+  "timings_seconds": {
+    "old_val": 4.198311334010214,
+    "old_test": 3.3627431619970594,
+    "new_val": 4.121777461987222,
+    "new_test": 3.285883817006834
+  },
+  "artifact_directory": "/tmp/adacast-lite-parity-vpkczuy3/dlinear_univariate_defaults"
+}
